@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
+  <title id="title">All-time token usage</title>
+  <desc id="desc">873.3M tokens used all time. Updated Jul 24, 2026.</desc>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #656d76;
+      --grid: #d8dee4;
+      --accent: #0969da;
+      --area: #0969da18;
+    }
+    text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
+    .card { fill: var(--bg); stroke: var(--border); }
+    .eyebrow { fill: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 1.2px; }
+    .total { fill: var(--text); font-size: 34px; font-weight: 700; letter-spacing: -1px; }
+    .unit { fill: var(--muted); font-size: 15px; font-weight: 500; }
+    .meta-label, .axis { fill: var(--muted); font-size: 11px; }
+    .grid { stroke: var(--grid); stroke-width: 1; }
+    .area { fill: var(--area); }
+    .line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <rect x="0.5" y="0.5" width="799" height="239" rx="12" class="card"/>
+  <text x="28" y="28" class="eyebrow">ALL-TIME TOKEN USAGE</text>
+  <text x="772" y="28" text-anchor="end" class="meta-label">UPDATED JUL 24, 2026 · UTC</text>
+  <text x="28" y="69" class="total">873.3M</text>
+  <text x="154" y="68" class="unit">tokens</text>
+
+  <line x1="28" y1="202" x2="772" y2="202" class="grid"/>
+  <path d="M28.0 167.2 C121.0 167.2, 121.0 165.8, 214.0 165.8 C307.0 165.8, 307.0 163.1, 400.0 163.1 C493.0 163.1, 493.0 152.3, 586.0 152.3 C679.0 152.3, 679.0 91.0, 772.0 91.0 L772.0 202.0 L28.0 202.0 Z" class="area"/>
+  <path d="M28.0 167.2 C121.0 167.2, 121.0 165.8, 214.0 165.8 C307.0 165.8, 307.0 163.1, 400.0 163.1 C493.0 163.1, 493.0 152.3, 586.0 152.3 C679.0 152.3, 679.0 91.0, 772.0 91.0" class="line"/>
+  <text x="28.0" y="224" text-anchor="start" class="axis">Mar</text>
+      <text x="214.0" y="224" text-anchor="middle" class="axis">Apr</text>
+      <text x="400.0" y="224" text-anchor="middle" class="axis">May</text>
+      <text x="586.0" y="224" text-anchor="middle" class="axis">Jun</text>
+      <text x="772.0" y="224" text-anchor="end" class="axis">Jul</text>
+</svg>

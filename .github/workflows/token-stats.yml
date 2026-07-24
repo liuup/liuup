@@ -1,0 +1,46 @@
+name: Token usage card
+
+on:
+  schedule:
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: token-usage-card
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Fetch token statistics
+        env:
+          TOKEN_HUB_MONITOR: ${{ secrets.TOKEN_HUB_MONITOR }}
+        run: |
+          test -n "$TOKEN_HUB_MONITOR"
+          curl --fail-with-body --silent --show-error \
+            --retry 3 --retry-all-errors \
+            "https://token-monitor-hub.liuup.workers.dev/api/stats" \
+            -H "Authorization: Bearer $TOKEN_HUB_MONITOR" \
+            -H "Content-Type: application/json" \
+            --output "$RUNNER_TEMP/token-stats.json"
+
+      - name: Generate SVG
+        run: node scripts/generate-token-stats.js "$RUNNER_TEMP/token-stats.json" assets/token-usage.svg
+
+      - name: Commit updated card
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add assets/token-usage.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "chore: update token usage card"
+          git push
