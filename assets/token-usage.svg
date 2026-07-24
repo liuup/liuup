@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
   <title id="title">All-time token usage</title>
-  <desc id="desc">875.2M tokens used all time. Updated Jul 24, 2026.</desc>
+  <desc id="desc">879.7M tokens used all time. Updated Jul 24, 2026.</desc>
   <style>
     :root {
       --bg: #ffffff;
@@ -25,12 +25,12 @@
   <rect x="0.5" y="0.5" width="799" height="239" rx="12" class="card"/>
   <text x="28" y="28" class="eyebrow">ALL-TIME TOKEN USAGE</text>
   <text x="772" y="28" text-anchor="end" class="meta-label">UPDATED JUL 24, 2026 · UTC</text>
-  <text x="28" y="69" class="total">875.2M</text>
+  <text x="28" y="69" class="total">879.7M</text>
   <text x="154" y="68" class="unit">tokens</text>
 
   <line x1="28" y1="202" x2="772" y2="202" class="grid"/>
-  <path d="M28.0 167.3 C121.0 167.3, 121.0 165.9, 214.0 165.9 C307.0 165.9, 307.0 163.2, 400.0 163.2 C493.0 163.2, 493.0 152.4, 586.0 152.4 C679.0 152.4, 679.0 91.0, 772.0 91.0 L772.0 202.0 L28.0 202.0 Z" class="area"/>
-  <path d="M28.0 167.3 C121.0 167.3, 121.0 165.9, 214.0 165.9 C307.0 165.9, 307.0 163.2, 400.0 163.2 C493.0 163.2, 493.0 152.4, 586.0 152.4 C679.0 152.4, 679.0 91.0, 772.0 91.0" class="line"/>
+  <path d="M28.0 167.5 C121.0 167.5, 121.0 166.0, 214.0 166.0 C307.0 166.0, 307.0 163.4, 400.0 163.4 C493.0 163.4, 493.0 152.6, 586.0 152.6 C679.0 152.6, 679.0 91.0, 772.0 91.0 L772.0 202.0 L28.0 202.0 Z" class="area"/>
+  <path d="M28.0 167.5 C121.0 167.5, 121.0 166.0, 214.0 166.0 C307.0 166.0, 307.0 163.4, 400.0 163.4 C493.0 163.4, 493.0 152.6, 586.0 152.6 C679.0 152.6, 679.0 91.0, 772.0 91.0" class="line"/>
   <text x="28.0" y="224" text-anchor="start" class="axis">Mar</text>
       <text x="214.0" y="224" text-anchor="middle" class="axis">Apr</text>
       <text x="400.0" y="224" text-anchor="middle" class="axis">May</text>
