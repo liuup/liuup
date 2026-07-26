@@ -1,39 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
   <title id="title">All-time token usage</title>
-  <desc id="desc">889.8M tokens used all time. Updated Jul 25, 2026.</desc>
+  <desc id="desc">873,278,659 tokens used all time as of July 24, 2026, with daily token usage shown above.</desc>
   <style>
     :root {
       --bg: #ffffff;
-      --border: #d0d7de;
-      --text: #1f2328;
-      --muted: #656d76;
+      --text: #000000;
       --grid: #d8dee4;
       --accent: #0969da;
       --area: #0969da18;
     }
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
-    .card { fill: var(--bg); stroke: var(--border); }
-    .eyebrow { fill: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 1.2px; }
-    .total { fill: var(--text); font-size: 34px; font-weight: 700; letter-spacing: -1px; }
-    .unit { fill: var(--muted); font-size: 15px; font-weight: 500; }
-    .meta-label, .axis { fill: var(--muted); font-size: 11px; }
+    .card { fill: var(--bg); }
+    .caption { fill: var(--text); font-size: 13px; font-weight: 500; }
     .grid { stroke: var(--grid); stroke-width: 1; }
     .area { fill: var(--area); }
     .line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
   </style>
 
-  <rect x="0.5" y="0.5" width="799" height="239" rx="12" class="card"/>
-  <text x="28" y="28" class="eyebrow">ALL-TIME TOKEN USAGE</text>
-  <text x="772" y="28" text-anchor="end" class="meta-label">UPDATED JUL 25, 2026 · UTC</text>
-  <text x="28" y="69" class="total">889.8M</text>
-  <text x="154" y="68" class="unit">tokens</text>
-
-  <line x1="28" y1="202" x2="772" y2="202" class="grid"/>
-  <path d="M28.0 167.9 C121.0 167.9, 121.0 166.4, 214.0 166.4 C307.0 166.4, 307.0 163.9, 400.0 163.9 C493.0 163.9, 493.0 153.2, 586.0 153.2 C679.0 153.2, 679.0 91.0, 772.0 91.0 L772.0 202.0 L28.0 202.0 Z" class="area"/>
-  <path d="M28.0 167.9 C121.0 167.9, 121.0 166.4, 214.0 166.4 C307.0 166.4, 307.0 163.9, 400.0 163.9 C493.0 163.9, 493.0 153.2, 586.0 153.2 C679.0 153.2, 679.0 91.0, 772.0 91.0" class="line"/>
-  <text x="28.0" y="224" text-anchor="start" class="axis">Mar</text>
-      <text x="214.0" y="224" text-anchor="middle" class="axis">Apr</text>
-      <text x="400.0" y="224" text-anchor="middle" class="axis">May</text>
-      <text x="586.0" y="224" text-anchor="middle" class="axis">Jun</text>
-      <text x="772.0" y="224" text-anchor="end" class="axis">Jul</text>
+  <rect width="800" height="240" class="card"/>
+  <line x1="12" y1="202" x2="788" y2="202" class="grid"/>
+  <path d="M12.0 201.8 C23.1 201.8, 23.1 202.0, 34.2 202.0 C45.3 202.0, 45.3 200.9, 56.3 200.9 C111.8 200.9, 111.8 201.8, 167.2 201.8 C189.4 201.8, 189.4 195.1, 211.5 195.1 C222.6 195.1, 222.6 201.0, 233.7 201.0 C244.8 201.0, 244.8 201.7, 255.9 201.7 C267.0 201.7, 267.0 175.8, 278.1 175.8 C289.1 175.8, 289.1 198.8, 300.2 198.8 C311.3 198.8, 311.3 179.5, 322.4 179.5 C333.5 179.5, 333.5 197.7, 344.6 197.7 C355.7 197.7, 355.7 201.6, 366.7 201.6 C377.8 201.6, 377.8 199.3, 388.9 199.3 C400.0 199.3, 400.0 198.2, 411.1 198.2 C422.2 198.2, 422.2 194.7, 433.3 194.7 C444.3 194.7, 444.3 154.0, 455.4 154.0 C466.5 154.0, 466.5 192.9, 477.6 192.9 C499.8 192.9, 499.8 201.8, 521.9 201.8 C533.0 201.8, 533.0 188.9, 544.1 188.9 C555.2 188.9, 555.2 190.1, 566.3 190.1 C577.4 190.1, 577.4 197.3, 588.5 197.3 C599.5 197.3, 599.5 195.0, 610.6 195.0 C621.7 195.0, 621.7 190.7, 632.8 190.7 C643.9 190.7, 643.9 63.4, 655.0 63.4 C666.1 63.4, 666.1 105.8, 677.1 105.8 C688.2 105.8, 688.2 9.8, 699.3 9.8 C710.4 9.8, 710.4 154.9, 721.5 154.9 C732.6 154.9, 732.6 152.6, 743.7 152.6 C754.7 152.6, 754.7 100.1, 765.8 100.1 C776.9 100.1, 776.9 173.3, 788.0 173.3 L788.0 202.0 L12.0 202.0 Z" class="area"/>
+  <path d="M12.0 201.8 C23.1 201.8, 23.1 202.0, 34.2 202.0 C45.3 202.0, 45.3 200.9, 56.3 200.9 C111.8 200.9, 111.8 201.8, 167.2 201.8 C189.4 201.8, 189.4 195.1, 211.5 195.1 C222.6 195.1, 222.6 201.0, 233.7 201.0 C244.8 201.0, 244.8 201.7, 255.9 201.7 C267.0 201.7, 267.0 175.8, 278.1 175.8 C289.1 175.8, 289.1 198.8, 300.2 198.8 C311.3 198.8, 311.3 179.5, 322.4 179.5 C333.5 179.5, 333.5 197.7, 344.6 197.7 C355.7 197.7, 355.7 201.6, 366.7 201.6 C377.8 201.6, 377.8 199.3, 388.9 199.3 C400.0 199.3, 400.0 198.2, 411.1 198.2 C422.2 198.2, 422.2 194.7, 433.3 194.7 C444.3 194.7, 444.3 154.0, 455.4 154.0 C466.5 154.0, 466.5 192.9, 477.6 192.9 C499.8 192.9, 499.8 201.8, 521.9 201.8 C533.0 201.8, 533.0 188.9, 544.1 188.9 C555.2 188.9, 555.2 190.1, 566.3 190.1 C577.4 190.1, 577.4 197.3, 588.5 197.3 C599.5 197.3, 599.5 195.0, 610.6 195.0 C621.7 195.0, 621.7 190.7, 632.8 190.7 C643.9 190.7, 643.9 63.4, 655.0 63.4 C666.1 63.4, 666.1 105.8, 677.1 105.8 C688.2 105.8, 688.2 9.8, 699.3 9.8 C710.4 9.8, 710.4 154.9, 721.5 154.9 C732.6 154.9, 732.6 152.6, 743.7 152.6 C754.7 152.6, 754.7 100.1, 765.8 100.1 C776.9 100.1, 776.9 173.3, 788.0 173.3" class="line"/>
+  <text x="400" y="229" text-anchor="middle" class="caption">All-time token usage: 873,278,659 as of July 24, 2026</text>
 </svg>
