@@ -115,22 +115,32 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" vi
   <style>
     :root {
       --bg: #ffffff;
-      --text: #000000;
-      --grid: #d8dee4;
-      --accent: #0969da;
-      --area: #0969da18;
+      --text: #00000f;
+      --strong: #111133;
+      --muted: gray;
+      --accent: #47a042;
     }
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .card { fill: var(--bg); }
     .caption { fill: var(--text); font-size: 13px; font-weight: 500; }
-    .counter { font-variant-numeric: tabular-nums; }
-    .grid { stroke: var(--grid); stroke-width: 1; }
-    .area { fill: var(--area); }
-    .line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .counter {
+      fill: var(--strong);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+    }
+    .date { fill: var(--muted); }
+    .area { fill: url(#area-gradient); }
+    .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
   </style>
 
+  <defs>
+    <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#47a042" stop-opacity="0.16"/>
+      <stop offset="72%" stop-color="#47a042" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#47a042" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
   <rect width="800" height="240" class="card"/>
-  <line x1="${chart.left}" y1="${chart.top + chart.height}" x2="${chart.left + chart.width}" y2="${chart.top + chart.height}" class="grid"/>
   <path d="${areaPath}" class="area">
     <animate attributeName="fill-opacity" values="0;0;1" keyTimes="0;0.75;1" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1" dur="3s" repeatCount="1"/>
   </path>
@@ -141,7 +151,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" vi
   <g aria-hidden="true">
 ${counterFrames}
   </g>
-  <text x="480" y="229" text-anchor="start" class="caption">as of ${escapeXml(updatedLabel)}</text>
+  <text x="480" y="229" text-anchor="start" class="caption date">as of ${escapeXml(updatedLabel)}</text>
 </svg>
 `;
 
