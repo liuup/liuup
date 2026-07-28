@@ -26,6 +26,25 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
+function buildCounterFrames(total) {
+  const frameCount = 30;
+  const durationSeconds = 3;
+  const frameDuration = durationSeconds / frameCount;
+
+  return Array.from({ length: frameCount + 1 }, (_, index) => {
+    const progress = index / frameCount;
+    const easedProgress = progress * progress * (3 - 2 * progress);
+    const value = Math.round(total * easedProgress).toLocaleString("en-US");
+    const begin = (index * frameDuration).toFixed(1);
+    const timing =
+      index === frameCount
+        ? `begin="${begin}s" dur="indefinite"`
+        : `begin="${begin}s" dur="${frameDuration.toFixed(1)}s"`;
+
+    return `    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">${escapeXml(value)}<set attributeName="visibility" to="visible" ${timing}/></text>`;
+  }).join("\n");
+}
+
 let data;
 try {
   data = JSON.parse(fs.readFileSync(inputPath, "utf8"));
@@ -88,6 +107,7 @@ const updatedLabel = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
 }).format(updatedAt);
 const exactTotal = totalTokens.toLocaleString("en-US");
+const counterFrames = buildCounterFrames(totalTokens);
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
   <title id="title">All-time token usage</title>
@@ -103,6 +123,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" vi
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .card { fill: var(--bg); }
     .caption { fill: var(--text); font-size: 13px; font-weight: 500; }
+    .counter { font-variant-numeric: tabular-nums; }
     .grid { stroke: var(--grid); stroke-width: 1; }
     .area { fill: var(--area); }
     .line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -110,9 +131,17 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" vi
 
   <rect width="800" height="240" class="card"/>
   <line x1="${chart.left}" y1="${chart.top + chart.height}" x2="${chart.left + chart.width}" y2="${chart.top + chart.height}" class="grid"/>
-  <path d="${areaPath}" class="area"/>
-  <path d="${linePath}" class="line"/>
-  <text x="400" y="229" text-anchor="middle" class="caption">All-time token usage: ${escapeXml(exactTotal)} as of ${escapeXml(updatedLabel)}</text>
+  <path d="${areaPath}" class="area">
+    <animate attributeName="fill-opacity" values="0;0;1" keyTimes="0;0.75;1" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1" dur="3s" repeatCount="1"/>
+  </path>
+  <path d="${linePath}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" class="line">
+    <animate attributeName="stroke-dashoffset" values="1;0" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1" dur="3s" repeatCount="1"/>
+  </path>
+  <text x="330" y="229" text-anchor="end" class="caption">All-time token usage:</text>
+  <g aria-hidden="true">
+${counterFrames}
+  </g>
+  <text x="480" y="229" text-anchor="start" class="caption">as of ${escapeXml(updatedLabel)}</text>
 </svg>
 `;
 
