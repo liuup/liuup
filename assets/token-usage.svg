@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
   <title id="title">All-time token usage</title>
-  <desc id="desc">2,135,231,698 tokens used all time as of July 29, 2026, with daily token usage shown above.</desc>
+  <desc id="desc">2,138,382,798 tokens used all time as of July 30, 2026, with daily token usage shown above.</desc>
   <style>
     :root {
       --bg: #ffffff;
@@ -30,45 +30,45 @@
     </linearGradient>
   </defs>
   <rect width="800" height="240" class="card"/>
-  <path d="M12.0 133.7 C25.4 133.7, 25.4 171.3, 38.8 171.3 C52.1 171.3, 52.1 150.1, 65.5 150.1 C78.9 150.1, 78.9 135.7, 92.3 135.7 C105.7 135.7, 105.7 180.5, 119.0 180.5 C132.4 180.5, 132.4 170.9, 145.8 170.9 C159.2 170.9, 159.2 125.0, 172.6 125.0 C185.9 125.0, 185.9 124.9, 199.3 124.9 C212.7 124.9, 212.7 150.0, 226.1 150.0 C239.4 150.0, 239.4 188.9, 252.8 188.9 C266.2 188.9, 266.2 138.5, 279.6 138.5 C293.0 138.5, 293.0 169.8, 306.3 169.8 C319.7 169.8, 319.7 37.7, 333.1 37.7 C346.5 37.7, 346.5 176.8, 359.9 176.8 C373.2 176.8, 373.2 159.4, 386.6 159.4 C400.0 159.4, 400.0 26.6, 413.4 26.6 C426.8 26.6, 426.8 157.7, 440.1 157.7 C453.5 157.7, 453.5 63.4, 466.9 63.4 C480.3 63.4, 480.3 105.8, 493.7 105.8 C507.0 105.8, 507.0 9.8, 520.4 9.8 C533.8 9.8, 533.8 154.9, 547.2 154.9 C560.6 154.9, 560.6 152.6, 573.9 152.6 C587.3 152.6, 587.3 100.1, 600.7 100.1 C614.1 100.1, 614.1 169.2, 627.4 169.2 C640.8 169.2, 640.8 182.7, 654.2 182.7 C667.6 182.7, 667.6 104.4, 681.0 104.4 C694.3 104.4, 694.3 66.7, 707.7 66.7 C721.1 66.7, 721.1 118.6, 734.5 118.6 C747.9 118.6, 747.9 200.9, 761.2 200.9 C774.6 200.9, 774.6 192.2, 788.0 192.2 L788.0 202.0 L12.0 202.0 Z" class="area">
+  <path d="M12.0 171.3 C25.4 171.3, 25.4 150.1, 38.8 150.1 C52.1 150.1, 52.1 135.7, 65.5 135.7 C78.9 135.7, 78.9 180.5, 92.3 180.5 C105.7 180.5, 105.7 170.9, 119.0 170.9 C132.4 170.9, 132.4 125.0, 145.8 125.0 C159.2 125.0, 159.2 124.9, 172.6 124.9 C185.9 124.9, 185.9 150.0, 199.3 150.0 C212.7 150.0, 212.7 188.9, 226.1 188.9 C239.4 188.9, 239.4 138.5, 252.8 138.5 C266.2 138.5, 266.2 169.8, 279.6 169.8 C293.0 169.8, 293.0 37.7, 306.3 37.7 C319.7 37.7, 319.7 176.8, 333.1 176.8 C346.5 176.8, 346.5 159.4, 359.9 159.4 C373.2 159.4, 373.2 26.6, 386.6 26.6 C400.0 26.6, 400.0 157.7, 413.4 157.7 C426.8 157.7, 426.8 63.4, 440.1 63.4 C453.5 63.4, 453.5 105.8, 466.9 105.8 C480.3 105.8, 480.3 9.8, 493.7 9.8 C507.0 9.8, 507.0 154.9, 520.4 154.9 C533.8 154.9, 533.8 152.6, 547.2 152.6 C560.6 152.6, 560.6 100.1, 573.9 100.1 C587.3 100.1, 587.3 169.2, 600.7 169.2 C614.1 169.2, 614.1 182.7, 627.4 182.7 C640.8 182.7, 640.8 104.4, 654.2 104.4 C667.6 104.4, 667.6 66.7, 681.0 66.7 C694.3 66.7, 694.3 118.6, 707.7 118.6 C721.1 118.6, 721.1 200.9, 734.5 200.9 C747.9 200.9, 747.9 192.2, 761.2 192.2 C774.6 192.2, 774.6 196.7, 788.0 196.7 L788.0 202.0 L12.0 202.0 Z" class="area">
     <animate attributeName="fill-opacity" values="0;0;1" keyTimes="0;0.75;1" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1" dur="3s" repeatCount="1"/>
   </path>
-  <path d="M12.0 133.7 C25.4 133.7, 25.4 171.3, 38.8 171.3 C52.1 171.3, 52.1 150.1, 65.5 150.1 C78.9 150.1, 78.9 135.7, 92.3 135.7 C105.7 135.7, 105.7 180.5, 119.0 180.5 C132.4 180.5, 132.4 170.9, 145.8 170.9 C159.2 170.9, 159.2 125.0, 172.6 125.0 C185.9 125.0, 185.9 124.9, 199.3 124.9 C212.7 124.9, 212.7 150.0, 226.1 150.0 C239.4 150.0, 239.4 188.9, 252.8 188.9 C266.2 188.9, 266.2 138.5, 279.6 138.5 C293.0 138.5, 293.0 169.8, 306.3 169.8 C319.7 169.8, 319.7 37.7, 333.1 37.7 C346.5 37.7, 346.5 176.8, 359.9 176.8 C373.2 176.8, 373.2 159.4, 386.6 159.4 C400.0 159.4, 400.0 26.6, 413.4 26.6 C426.8 26.6, 426.8 157.7, 440.1 157.7 C453.5 157.7, 453.5 63.4, 466.9 63.4 C480.3 63.4, 480.3 105.8, 493.7 105.8 C507.0 105.8, 507.0 9.8, 520.4 9.8 C533.8 9.8, 533.8 154.9, 547.2 154.9 C560.6 154.9, 560.6 152.6, 573.9 152.6 C587.3 152.6, 587.3 100.1, 600.7 100.1 C614.1 100.1, 614.1 169.2, 627.4 169.2 C640.8 169.2, 640.8 182.7, 654.2 182.7 C667.6 182.7, 667.6 104.4, 681.0 104.4 C694.3 104.4, 694.3 66.7, 707.7 66.7 C721.1 66.7, 721.1 118.6, 734.5 118.6 C747.9 118.6, 747.9 200.9, 761.2 200.9 C774.6 200.9, 774.6 192.2, 788.0 192.2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" class="line">
+  <path d="M12.0 171.3 C25.4 171.3, 25.4 150.1, 38.8 150.1 C52.1 150.1, 52.1 135.7, 65.5 135.7 C78.9 135.7, 78.9 180.5, 92.3 180.5 C105.7 180.5, 105.7 170.9, 119.0 170.9 C132.4 170.9, 132.4 125.0, 145.8 125.0 C159.2 125.0, 159.2 124.9, 172.6 124.9 C185.9 124.9, 185.9 150.0, 199.3 150.0 C212.7 150.0, 212.7 188.9, 226.1 188.9 C239.4 188.9, 239.4 138.5, 252.8 138.5 C266.2 138.5, 266.2 169.8, 279.6 169.8 C293.0 169.8, 293.0 37.7, 306.3 37.7 C319.7 37.7, 319.7 176.8, 333.1 176.8 C346.5 176.8, 346.5 159.4, 359.9 159.4 C373.2 159.4, 373.2 26.6, 386.6 26.6 C400.0 26.6, 400.0 157.7, 413.4 157.7 C426.8 157.7, 426.8 63.4, 440.1 63.4 C453.5 63.4, 453.5 105.8, 466.9 105.8 C480.3 105.8, 480.3 9.8, 493.7 9.8 C507.0 9.8, 507.0 154.9, 520.4 154.9 C533.8 154.9, 533.8 152.6, 547.2 152.6 C560.6 152.6, 560.6 100.1, 573.9 100.1 C587.3 100.1, 587.3 169.2, 600.7 169.2 C614.1 169.2, 614.1 182.7, 627.4 182.7 C640.8 182.7, 640.8 104.4, 654.2 104.4 C667.6 104.4, 667.6 66.7, 681.0 66.7 C694.3 66.7, 694.3 118.6, 707.7 118.6 C721.1 118.6, 721.1 200.9, 734.5 200.9 C747.9 200.9, 747.9 192.2, 761.2 192.2 C774.6 192.2, 774.6 196.7, 788.0 196.7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" class="line">
     <animate attributeName="stroke-dashoffset" values="1;0" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1" dur="3s" repeatCount="1"/>
   </path>
   <text x="330" y="229" text-anchor="end" class="caption">All-time token usage:</text>
   <g aria-hidden="true">
     <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">0<set attributeName="visibility" to="visible" begin="0.0s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">6,959,274<set attributeName="visibility" to="visible" begin="0.1s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">27,204,433<set attributeName="visibility" to="visible" begin="0.2s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">59,786,488<set attributeName="visibility" to="visible" begin="0.3s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">103,756,444<set attributeName="visibility" to="visible" begin="0.4s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">158,165,311<set attributeName="visibility" to="visible" begin="0.5s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">222,064,097<set attributeName="visibility" to="visible" begin="0.6s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">294,503,809<set attributeName="visibility" to="visible" begin="0.7s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">374,535,456<set attributeName="visibility" to="visible" begin="0.8s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">461,210,047<set attributeName="visibility" to="visible" begin="0.9s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">553,578,588<set attributeName="visibility" to="visible" begin="1.0s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">650,692,089<set attributeName="visibility" to="visible" begin="1.1s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">751,601,558<set attributeName="visibility" to="visible" begin="1.2s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">855,358,002<set attributeName="visibility" to="visible" begin="1.3s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">961,012,429<set attributeName="visibility" to="visible" begin="1.4s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,067,615,849<set attributeName="visibility" to="visible" begin="1.5s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,174,219,269<set attributeName="visibility" to="visible" begin="1.6s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,279,873,696<set attributeName="visibility" to="visible" begin="1.7s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,383,630,140<set attributeName="visibility" to="visible" begin="1.8s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,484,539,609<set attributeName="visibility" to="visible" begin="1.9s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,581,653,110<set attributeName="visibility" to="visible" begin="2.0s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,674,021,651<set attributeName="visibility" to="visible" begin="2.1s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,760,696,242<set attributeName="visibility" to="visible" begin="2.2s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,840,727,889<set attributeName="visibility" to="visible" begin="2.3s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,913,167,601<set attributeName="visibility" to="visible" begin="2.4s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,977,066,387<set attributeName="visibility" to="visible" begin="2.5s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,031,475,254<set attributeName="visibility" to="visible" begin="2.6s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,075,445,210<set attributeName="visibility" to="visible" begin="2.7s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,108,027,265<set attributeName="visibility" to="visible" begin="2.8s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,128,272,424<set attributeName="visibility" to="visible" begin="2.9s" dur="0.1s"/></text>
-    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,135,231,698<set attributeName="visibility" to="visible" begin="3.0s" dur="indefinite"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">6,969,544<set attributeName="visibility" to="visible" begin="0.1s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">27,244,581<set attributeName="visibility" to="visible" begin="0.2s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">59,874,718<set attributeName="visibility" to="visible" begin="0.3s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">103,909,564<set attributeName="visibility" to="visible" begin="0.4s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">158,398,726<set attributeName="visibility" to="visible" begin="0.5s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">222,391,811<set attributeName="visibility" to="visible" begin="0.6s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">294,938,427<set attributeName="visibility" to="visible" begin="0.7s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">375,088,183<set attributeName="visibility" to="visible" begin="0.8s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">461,890,684<set attributeName="visibility" to="visible" begin="0.9s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">554,395,540<set attributeName="visibility" to="visible" begin="1.0s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">651,652,358<set attributeName="visibility" to="visible" begin="1.1s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">752,710,745<set attributeName="visibility" to="visible" begin="1.2s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">856,620,309<set attributeName="visibility" to="visible" begin="1.3s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">962,430,658<set attributeName="visibility" to="visible" begin="1.4s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,069,191,399<set attributeName="visibility" to="visible" begin="1.5s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,175,952,140<set attributeName="visibility" to="visible" begin="1.6s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,281,762,489<set attributeName="visibility" to="visible" begin="1.7s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,385,672,053<set attributeName="visibility" to="visible" begin="1.8s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,486,730,440<set attributeName="visibility" to="visible" begin="1.9s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,583,987,258<set attributeName="visibility" to="visible" begin="2.0s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,676,492,114<set attributeName="visibility" to="visible" begin="2.1s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,763,294,615<set attributeName="visibility" to="visible" begin="2.2s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,843,444,371<set attributeName="visibility" to="visible" begin="2.3s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,915,990,987<set attributeName="visibility" to="visible" begin="2.4s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">1,979,984,072<set attributeName="visibility" to="visible" begin="2.5s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,034,473,234<set attributeName="visibility" to="visible" begin="2.6s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,078,508,080<set attributeName="visibility" to="visible" begin="2.7s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,111,138,217<set attributeName="visibility" to="visible" begin="2.8s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,131,413,254<set attributeName="visibility" to="visible" begin="2.9s" dur="0.1s"/></text>
+    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">2,138,382,798<set attributeName="visibility" to="visible" begin="3.0s" dur="indefinite"/></text>
   </g>
-  <text x="480" y="229" text-anchor="start" class="caption date">as of July 29, 2026</text>
+  <text x="480" y="229" text-anchor="start" class="caption date">as of July 30, 2026</text>
 </svg>
