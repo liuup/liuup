@@ -26,23 +26,18 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-function pointX(index, count) {
-  return count === 1 ? 400 : 20 + (index / (count - 1)) * 760;
-}
-
-function scaleValues(values, top, height, padding) {
-  const minimum = Math.min(...values);
-  const maximum = Math.max(...values);
-  const span = Math.max(maximum - minimum, 1);
-  const domainMin = minimum - span * padding;
-  const domainSpan = span * (1 + padding * 2);
-  return values.map(
-    (value) => top + height - ((value - domainMin) / domainSpan) * height,
-  );
-}
-
-function quantile(sorted, fraction) {
-  return sorted[Math.floor((sorted.length - 1) * fraction)] ?? 0;
+function compactNumber(value) {
+  const units = [
+    [1_000_000_000, "B"],
+    [1_000_000, "M"],
+    [1_000, "K"],
+  ];
+  for (const [divisor, suffix] of units) {
+    if (value >= divisor) {
+      return `${(value / divisor).toFixed(1).replace(/\.0$/, "")}${suffix}`;
+    }
+  }
+  return value.toLocaleString("en-US");
 }
 
 let data;
@@ -77,59 +72,73 @@ const updatedLabel = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
 }).format(updatedAt);
 
-const previewTotal = dailyTokens.reduce((sum, value) => sum + value, 0);
-let runningTotal = Math.max(0, totalTokens - previewTotal);
-const cumulative = dailyTokens.map((value) => (runningTotal += value));
-const cumulativeY = scaleValues(cumulative, 74, 96, 0.12);
-const cumulativePoints = cumulative.map((_, index) => ({
-  x: pointX(index, cumulative.length),
-  y: cumulativeY[index],
-}));
-const stepPath = cumulativePoints.slice(1).reduce(
-  (result, point) =>
-    `${result} H${point.x.toFixed(1)} V${point.y.toFixed(1)}`,
-  `M${cumulativePoints[0].x.toFixed(1)} ${cumulativePoints[0].y.toFixed(1)}`,
-);
-
-const sortedDaily = [...dailyTokens].sort((a, b) => a - b);
-const thresholds = [0.2, 0.4, 0.6, 0.8].map((fraction) =>
-  quantile(sortedDaily, fraction),
-);
-function heatLevel(value) {
-  if (value <= thresholds[0]) return 0;
-  if (value <= thresholds[1]) return 1;
-  if (value <= thresholds[2]) return 2;
-  if (value <= thresholds[3]) return 3;
-  return 4;
+const allTimeModels = data.periods?.allTime?.models;
+if (!allTimeModels || typeof allTimeModels !== "object") {
+  fail("periods.allTime.models must be an object");
 }
+const topModels = Object.entries(allTimeModels)
+  .filter(([model, tokens]) => model !== "unknown" && Number(tokens) > 0)
+  .map(([model, tokens]) => ({
+    model,
+    tokens: numeric(tokens, `tokens for model ${model}`),
+  }))
+  .sort((a, b) => b.tokens - a.tokens)
+  .slice(0, 5);
+if (topModels.length === 0) fail("periods.allTime.models has no usable entries");
 
-const cellSize = 20;
-const heatCells = daily
+const chartLeft = 28;
+const chartWidth = 460;
+const chartTop = 88;
+const chartBottom = 216;
+const chartHeight = chartBottom - chartTop;
+const maxDaily = Math.max(...dailyTokens, 1);
+const daySlot = chartWidth / daily.length;
+const barWidth = Math.min(10, daySlot * 0.64);
+const bars = daily
   .map((entry, index) => {
-    const x = pointX(index, daily.length) - cellSize / 2;
-    return `  <rect x="${x.toFixed(1)}" y="178" width="${cellSize}" height="${cellSize}" rx="4" class="heat-${heatLevel(entry.tokens)}"><title>${escapeXml(entry.date)}: ${escapeXml(entry.tokens.toLocaleString("en-US"))} tokens</title></rect>`;
+    const height = Math.max(2, (entry.tokens / maxDaily) * chartHeight);
+    const x = chartLeft + index * daySlot + (daySlot - barWidth) / 2;
+    const y = chartBottom - height;
+    const className = entry.tokens === maxDaily ? "daily-bar peak" : "daily-bar";
+    return `  <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${height.toFixed(1)}" rx="${(barWidth / 2).toFixed(1)}" class="${className}"><title>${escapeXml(entry.date)}: ${escapeXml(entry.tokens.toLocaleString("en-US"))} tokens</title></rect>`;
   })
   .join("\n");
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 30 800 180" role="img" aria-labelledby="title desc">
+const modelTrackLeft = 530;
+const modelTrackWidth = 242;
+const modelMax = topModels[0].tokens;
+const modelRows = topModels
+  .map((entry, index) => {
+    const labelY = 94 + index * 27;
+    const trackY = labelY + 6;
+    const width = Math.max(4, (entry.tokens / modelMax) * modelTrackWidth);
+    return `  <text x="${modelTrackLeft}" y="${labelY}" class="model-name">${escapeXml(entry.model)}</text>
+  <text x="${modelTrackLeft + modelTrackWidth}" y="${labelY}" text-anchor="end" class="model-value">${escapeXml(compactNumber(entry.tokens))}</text>
+  <rect x="${modelTrackLeft}" y="${trackY}" width="${modelTrackWidth}" height="7" rx="3.5" class="model-track"/>
+  <rect x="${modelTrackLeft}" y="${trackY}" width="${width.toFixed(1)}" height="7" rx="3.5" class="model-bar"><title>${escapeXml(entry.model)}: ${escapeXml(entry.tokens.toLocaleString("en-US"))} tokens</title></rect>`;
+  })
+  .join("\n");
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 30 800 200" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Cumulative token growth and daily usage intensity for the most recent ${daily.length} active days, ending at ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens as of ${escapeXml(updatedLabel)}.</desc>
+  <desc id="desc">Daily token usage for the most recent ${daily.length} active days and the five most-used models of all time, with ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens used as of ${escapeXml(updatedLabel)}.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 13px; font-weight: 500; }
-    .subtitle { fill: gray; font-size: 11px; font-weight: 400; }
-    .step { fill: none; stroke: #47a042; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .heat-0 { fill: #efefef; }
-    .heat-1 { fill: #d8e887; }
-    .heat-2 { fill: #8cc569; }
-    .heat-3 { fill: #47a042; }
-    .heat-4 { fill: #1d6a23; }
+    .section { fill: gray; font-size: 11px; font-weight: 400; }
+    .daily-bar { fill: #47a042; fill-opacity: 0.62; }
+    .daily-bar.peak { fill: #1d6a23; fill-opacity: 0.9; }
+    .model-name { fill: #00000f; font-size: 10.5px; font-weight: 500; }
+    .model-value { fill: gray; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .model-track { fill: #efefef; }
+    .model-bar { fill: #47a042; }
   </style>
   <rect width="800" height="240" fill="#ffffff"/>
   <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: ${escapeXml(totalTokens.toLocaleString("en-US"))} as of ${escapeXml(updatedLabel)}</text>
-  <text x="400" y="64" text-anchor="middle" class="subtitle">Cumulative steps with daily intensity · last ${daily.length} active days</text>
-  <path d="${stepPath}" class="step"/>
-${heatCells}
+  <text x="258" y="72" text-anchor="middle" class="section">Daily usage · last ${daily.length} active days</text>
+  <text x="651" y="72" text-anchor="middle" class="section">Top models · all time</text>
+${bars}
+${modelRows}
 </svg>
 `;
 
