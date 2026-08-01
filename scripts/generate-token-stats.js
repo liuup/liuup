@@ -5,9 +5,7 @@ const path = require("node:path");
 
 const inputPath = process.argv[2] ?? "response.json";
 const outputPath = process.argv[3] ?? "assets/token-usage.svg";
-const historyPath = process.argv[4] ?? "assets/token-history.json";
 const DAY_MS = 86_400_000;
-const DAYS_IN_YEAR = 365;
 
 function fail(message) {
   console.error(`token-stats: ${message}`);
@@ -29,21 +27,16 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-function parseDay(value, label) {
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value));
-  if (!match) fail(`invalid ${label}: ${value}`);
-  const time = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-  if (dayKey(time) !== value) fail(`invalid ${label}: ${value}`);
-  return time;
-}
-
 function dayKey(time) {
   return new Date(time).toISOString().slice(0, 10);
 }
 
-function minDefined(...values) {
-  const defined = values.filter(Number.isFinite);
-  return defined.length ? Math.min(...defined) : undefined;
+function parseDay(value) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value));
+  if (!match) fail(`invalid daily date: ${value}`);
+  const time = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  if (dayKey(time) !== value) fail(`invalid daily date: ${value}`);
+  return time;
 }
 
 let data;
@@ -57,72 +50,32 @@ const daily = data.historyPreview?.daily;
 if (!Array.isArray(daily) || daily.length === 0) {
   fail("historyPreview.daily must contain at least one entry");
 }
+
 const totalTokens = number(
   data.historyPreview?.summary?.totalTokens ?? data.periods?.allTime?.totalTokens,
   "all-time token total",
 );
-
 const updatedAt = new Date(data.updatedAt);
 if (Number.isNaN(updatedAt.valueOf())) fail("missing or invalid updatedAt");
-const endDay = Date.UTC(
+const updatedDay = Date.UTC(
   updatedAt.getUTCFullYear(),
   updatedAt.getUTCMonth(),
   updatedAt.getUTCDate(),
 );
-const startDay = endDay - (DAYS_IN_YEAR - 1) * DAY_MS;
 
-let savedHistory = {};
-if (fs.existsSync(historyPath)) {
-  try {
-    savedHistory = JSON.parse(fs.readFileSync(historyPath, "utf8"));
-  } catch (error) {
-    fail(`cannot read ${historyPath}: ${error.message}`);
-  }
-}
-
-const tokensByDay = new Map();
-for (const entry of savedHistory.daily ?? []) {
-  const time = parseDay(entry.date, "saved history date");
-  if (time >= startDay && time <= endDay) {
-    tokensByDay.set(entry.date, number(entry.tokens, `tokens for ${entry.date}`));
-  }
-}
-
-let firstCurrentDay;
-for (const entry of daily) {
-  const time = parseDay(entry.date, "daily date");
-  firstCurrentDay = minDefined(firstCurrentDay, time);
-  if (time >= startDay && time <= endDay) {
-    tokensByDay.set(entry.date, number(entry.tokens, `tokens for ${entry.date}`));
-  }
-}
-
-const savedObservedFrom = savedHistory.observedFrom
-  ? parseDay(savedHistory.observedFrom, "observedFrom")
-  : undefined;
-const observedFrom = Math.max(
-  startDay,
-  minDefined(savedObservedFrom, firstCurrentDay) ?? startDay,
+const tokensByDay = new Map(
+  daily.map((entry) => {
+    const time = parseDay(entry.date);
+    return [dayKey(time), number(entry.tokens, `tokens for ${entry.date}`)];
+  }),
 );
-
-const history = {
-  updatedAt: data.updatedAt,
-  observedFrom: dayKey(observedFrom),
-  observedThrough: dayKey(endDay),
-  daily: [...tokensByDay]
-    .map(([date, tokens]) => ({ date, tokens }))
-    .sort((a, b) => a.date.localeCompare(b.date)),
-};
-
-fs.mkdirSync(path.dirname(historyPath), { recursive: true });
-fs.writeFileSync(historyPath, `${JSON.stringify(history, null, 2)}\n`);
-
-const observedSum = [...tokensByDay]
-  .filter(([date]) => parseDay(date, "history date") >= observedFrom)
-  .reduce((sum, [, tokens]) => sum + tokens, 0);
-let cumulative = Math.max(0, totalTokens - observedSum);
+const activeDays = [...tokensByDay.keys()].map(parseDay).sort((a, b) => a - b);
+const firstDay = activeDays[0];
+const lastDay = Math.max(activeDays.at(-1), updatedDay);
+const previewTotal = [...tokensByDay.values()].reduce((sum, tokens) => sum + tokens, 0);
+let cumulative = Math.max(0, totalTokens - previewTotal);
 const series = [];
-for (let time = observedFrom; time <= endDay; time += DAY_MS) {
+for (let time = firstDay; time <= lastDay; time += DAY_MS) {
   cumulative += tokensByDay.get(dayKey(time)) ?? 0;
   series.push({ time, tokens: cumulative });
 }
@@ -163,17 +116,19 @@ const updatedLabel = new Intl.DateTimeFormat("en", {
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="210" viewBox="0 30 800 210" role="img" aria-labelledby="title desc">
   <title id="title">Cumulative token usage</title>
-  <desc id="desc">A static cumulative token usage curve ending at ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens as of ${escapeXml(updatedLabel)}.</desc>
+  <desc id="desc">A static cumulative token usage curve for the most recent ${daily.length} active days, ending at ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens as of ${escapeXml(updatedLabel)}.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 13px; font-weight: 500; }
+    .period { fill: gray; font-size: 11px; font-weight: 400; }
   </style>
   <rect width="800" height="240" fill="#ffffff"/>
   <path d="${linePath}" fill="none" stroke="#47a042" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: ${escapeXml(totalTokens.toLocaleString("en-US"))} as of ${escapeXml(updatedLabel)}</text>
+  <text x="400" y="64" text-anchor="middle" class="period">Cumulative growth over the last ${daily.length} active days</text>
 </svg>
 `;
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, svg);
-console.log(`Generated ${outputPath} and updated ${historyPath}`);
+console.log(`Generated ${outputPath}`);
