@@ -32,13 +32,13 @@ jobs:
             --output "$RUNNER_TEMP/token-stats.json"
 
       - name: Generate SVG
-        run: node scripts/generate-token-stats.js "$RUNNER_TEMP/token-stats.json" assets/token-usage.svg
+        run: node scripts/generate-token-stats.js "$RUNNER_TEMP/token-stats.json" assets/token-usage.svg assets/token-history.json
 
       - name: Commit updated card
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add assets/token-usage.svg
+          git add assets/token-usage.svg assets/token-history.json
           if git diff --cached --quiet; then
             exit 0
           fi

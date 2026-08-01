@@ -5,6 +5,9 @@ const path = require("node:path");
 
 const inputPath = process.argv[2] ?? "response.json";
 const outputPath = process.argv[3] ?? "assets/token-usage.svg";
+const historyPath = process.argv[4] ?? "assets/token-history.json";
+const DAY_MS = 86_400_000;
+const DAYS_IN_YEAR = 365;
 
 function fail(message) {
   console.error(`token-stats: ${message}`);
@@ -26,23 +29,21 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-function buildCounterFrames(total) {
-  const frameCount = 30;
-  const durationSeconds = 3;
-  const frameDuration = durationSeconds / frameCount;
+function parseDay(value, label) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value));
+  if (!match) fail(`invalid ${label}: ${value}`);
+  const time = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  if (dayKey(time) !== value) fail(`invalid ${label}: ${value}`);
+  return time;
+}
 
-  return Array.from({ length: frameCount + 1 }, (_, index) => {
-    const progress = index / frameCount;
-    const easedProgress = progress * progress * (3 - 2 * progress);
-    const value = Math.round(total * easedProgress).toLocaleString("en-US");
-    const begin = (index * frameDuration).toFixed(1);
-    const timing =
-      index === frameCount
-        ? `begin="${begin}s" dur="indefinite"`
-        : `begin="${begin}s" dur="${frameDuration.toFixed(1)}s"`;
+function dayKey(time) {
+  return new Date(time).toISOString().slice(0, 10);
+}
 
-    return `    <text x="405" y="229" text-anchor="middle" visibility="hidden" class="caption counter">${escapeXml(value)}<set attributeName="visibility" to="visible" ${timing}/></text>`;
-  }).join("\n");
+function minDefined(...values) {
+  const defined = values.filter(Number.isFinite);
+  return defined.length ? Math.min(...defined) : undefined;
 }
 
 let data;
@@ -52,53 +53,106 @@ try {
   fail(`cannot read ${inputPath}: ${error.message}`);
 }
 
-const summary = data.historyPreview?.summary ?? {};
-const allTime = data.periods?.allTime ?? {};
 const daily = data.historyPreview?.daily;
-
 if (!Array.isArray(daily) || daily.length === 0) {
   fail("historyPreview.daily must contain at least one entry");
 }
-
 const totalTokens = number(
-  summary.totalTokens ?? allTime.totalTokens,
+  data.historyPreview?.summary?.totalTokens ?? data.periods?.allTime?.totalTokens,
   "all-time token total",
 );
+
 const updatedAt = new Date(data.updatedAt);
 if (Number.isNaN(updatedAt.valueOf())) fail("missing or invalid updatedAt");
+const endDay = Date.UTC(
+  updatedAt.getUTCFullYear(),
+  updatedAt.getUTCMonth(),
+  updatedAt.getUTCDate(),
+);
+const startDay = endDay - (DAYS_IN_YEAR - 1) * DAY_MS;
 
-const series = daily
-  .map((entry) => {
-    const date = String(entry.date);
-    const time = new Date(`${date}T00:00:00Z`).valueOf();
-    if (!Number.isFinite(time)) fail(`invalid daily date: ${date}`);
-    return {
-      time,
-      tokens: number(entry.tokens, `tokens for ${date}`),
-    };
-  })
-  .sort((a, b) => a.time - b.time);
+let savedHistory = {};
+if (fs.existsSync(historyPath)) {
+  try {
+    savedHistory = JSON.parse(fs.readFileSync(historyPath, "utf8"));
+  } catch (error) {
+    fail(`cannot read ${historyPath}: ${error.message}`);
+  }
+}
 
-const chart = { left: 12, top: 4, width: 776, height: 198 };
-const maxDaily = Math.max(...series.map((point) => point.tokens), 1) * 1.03;
+const tokensByDay = new Map();
+for (const entry of savedHistory.daily ?? []) {
+  const time = parseDay(entry.date, "saved history date");
+  if (time >= startDay && time <= endDay) {
+    tokensByDay.set(entry.date, number(entry.tokens, `tokens for ${entry.date}`));
+  }
+}
+
+let firstCurrentDay;
+for (const entry of daily) {
+  const time = parseDay(entry.date, "daily date");
+  firstCurrentDay = minDefined(firstCurrentDay, time);
+  if (time >= startDay && time <= endDay) {
+    tokensByDay.set(entry.date, number(entry.tokens, `tokens for ${entry.date}`));
+  }
+}
+
+const savedObservedFrom = savedHistory.observedFrom
+  ? parseDay(savedHistory.observedFrom, "observedFrom")
+  : undefined;
+const observedFrom = Math.max(
+  startDay,
+  minDefined(savedObservedFrom, firstCurrentDay) ?? startDay,
+);
+
+const history = {
+  updatedAt: data.updatedAt,
+  observedFrom: dayKey(observedFrom),
+  observedThrough: dayKey(endDay),
+  daily: [...tokensByDay]
+    .map(([date, tokens]) => ({ date, tokens }))
+    .sort((a, b) => a.date.localeCompare(b.date)),
+};
+
+fs.mkdirSync(path.dirname(historyPath), { recursive: true });
+fs.writeFileSync(historyPath, `${JSON.stringify(history, null, 2)}\n`);
+
+const observedSum = [...tokensByDay]
+  .filter(([date]) => parseDay(date, "history date") >= observedFrom)
+  .reduce((sum, [, tokens]) => sum + tokens, 0);
+let cumulative = Math.max(0, totalTokens - observedSum);
+const series = [];
+for (let time = observedFrom; time <= endDay; time += DAY_MS) {
+  cumulative += tokensByDay.get(dayKey(time)) ?? 0;
+  series.push({ time, tokens: cumulative });
+}
+
+const chart = { left: 10, top: 34, width: 780, height: 196 };
 const firstTime = series[0].time;
 const lastTime = series.at(-1).time;
 const timeSpan = Math.max(lastTime - firstTime, 1);
+const minTokens = Math.min(...series.map((point) => point.tokens));
+const maxTokens = Math.max(...series.map((point) => point.tokens));
+const tokenSpan = Math.max(maxTokens - minTokens, 1);
 const points = series.map((point) => ({
-  ...point,
   x:
     series.length === 1
       ? chart.left + chart.width / 2
       : chart.left + ((point.time - firstTime) / timeSpan) * chart.width,
-  y: chart.top + chart.height - (point.tokens / maxDaily) * chart.height,
+  y:
+    maxTokens === minTokens
+      ? chart.top + chart.height / 2
+      : chart.top + chart.height - ((point.tokens - minTokens) / tokenSpan) * chart.height,
 }));
 
-const linePath = points.slice(1).reduce((pathData, point, index) => {
-  const previous = points[index];
-  const middleX = (previous.x + point.x) / 2;
-  return `${pathData} C${middleX.toFixed(1)} ${previous.y.toFixed(1)}, ${middleX.toFixed(1)} ${point.y.toFixed(1)}, ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;
-}, `M${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`);
-const areaPath = `${linePath} L${points.at(-1).x.toFixed(1)} ${(chart.top + chart.height).toFixed(1)} L${points[0].x.toFixed(1)} ${(chart.top + chart.height).toFixed(1)} Z`;
+const linePath =
+  points.length === 1
+    ? `M${chart.left} ${points[0].y.toFixed(1)} L${chart.left + chart.width} ${points[0].y.toFixed(1)}`
+    : points.slice(1).reduce((pathData, point, index) => {
+        const previous = points[index];
+        const middleX = (previous.x + point.x) / 2;
+        return `${pathData} C${middleX.toFixed(1)} ${previous.y.toFixed(1)}, ${middleX.toFixed(1)} ${point.y.toFixed(1)}, ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;
+      }, `M${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`);
 
 const updatedLabel = new Intl.DateTimeFormat("en", {
   year: "numeric",
@@ -106,55 +160,20 @@ const updatedLabel = new Intl.DateTimeFormat("en", {
   day: "2-digit",
   timeZone: "UTC",
 }).format(updatedAt);
-const exactTotal = totalTokens.toLocaleString("en-US");
-const counterFrames = buildCounterFrames(totalTokens);
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
-  <title id="title">All-time token usage</title>
-  <desc id="desc">${escapeXml(exactTotal)} tokens used all time as of ${escapeXml(updatedLabel)}, with daily token usage shown above.</desc>
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="210" viewBox="0 30 800 210" role="img" aria-labelledby="title desc">
+  <title id="title">Cumulative token usage</title>
+  <desc id="desc">A static cumulative token usage curve ending at ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens as of ${escapeXml(updatedLabel)}.</desc>
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #00000f;
-      --strong: #111133;
-      --muted: gray;
-      --accent: #47a042;
-    }
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
-    .card { fill: var(--bg); }
-    .caption { fill: var(--text); font-size: 13px; font-weight: 500; }
-    .counter {
-      fill: var(--strong);
-      font-variant-numeric: tabular-nums;
-      font-weight: 700;
-    }
-    .date { fill: var(--muted); }
-    .area { fill: url(#area-gradient); }
-    .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .total { fill: #00000f; font-size: 13px; font-weight: 500; }
   </style>
-
-  <defs>
-    <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#47a042" stop-opacity="0.16"/>
-      <stop offset="72%" stop-color="#47a042" stop-opacity="0.07"/>
-      <stop offset="100%" stop-color="#47a042" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="240" class="card"/>
-  <path d="${areaPath}" class="area">
-    <animate attributeName="fill-opacity" values="0;0;1" keyTimes="0;0.75;1" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1" dur="3s" repeatCount="1"/>
-  </path>
-  <path d="${linePath}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" class="line">
-    <animate attributeName="stroke-dashoffset" values="1;0" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1" dur="3s" repeatCount="1"/>
-  </path>
-  <text x="330" y="229" text-anchor="end" class="caption">All-time token usage:</text>
-  <g aria-hidden="true">
-${counterFrames}
-  </g>
-  <text x="480" y="229" text-anchor="start" class="caption date">as of ${escapeXml(updatedLabel)}</text>
+  <rect width="800" height="240" fill="#ffffff"/>
+  <path d="${linePath}" fill="none" stroke="#47a042" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: ${escapeXml(totalTokens.toLocaleString("en-US"))} as of ${escapeXml(updatedLabel)}</text>
 </svg>
 `;
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, svg);
-console.log(`Generated ${outputPath}`);
+console.log(`Generated ${outputPath} and updated ${historyPath}`);
