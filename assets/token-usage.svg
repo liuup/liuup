@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 30 800 200" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage for the most recent 30 active days and the five most-used models of all time, with 2,216,922,090 tokens used as of August 01, 2026.</desc>
+  <desc id="desc">Daily token usage for the most recent 30 active days and the five most-used models of all time, with 2,233,091,927 tokens used as of August 02, 2026.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 13px; font-weight: 500; }
@@ -13,7 +13,7 @@
     .model-bar { fill: #47a042; }
   </style>
   <rect width="800" height="240" fill="#ffffff"/>
-  <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: 2,216,922,090 as of August 01, 2026</text>
+  <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: 2,233,091,927 as of August 02, 2026</text>
   <text x="258" y="72" text-anchor="middle" class="section">Daily usage · last 30 active days</text>
   <text x="651" y="72" text-anchor="middle" class="section">Top models · all time</text>
   <rect x="30.8" y="171.8" width="9.8" height="44.2" rx="4.9" class="daily-bar"><title>2026-07-03: 39,788,033 tokens</title></rect>
@@ -45,25 +45,25 @@
   <rect x="429.4" y="209.5" width="9.8" height="6.5" rx="4.9" class="daily-bar"><title>2026-07-29: 5,875,527 tokens</title></rect>
   <rect x="444.8" y="212.1" width="9.8" height="3.9" rx="4.9" class="daily-bar"><title>2026-07-30: 3,488,696 tokens</title></rect>
   <rect x="460.1" y="208.9" width="9.8" height="7.1" rx="4.9" class="daily-bar"><title>2026-07-31: 6,418,977 tokens</title></rect>
-  <rect x="475.4" y="136.3" width="9.8" height="79.7" rx="4.9" class="daily-bar"><title>2026-08-01: 71,782,719 tokens</title></rect>
+  <rect x="475.4" y="118.4" width="9.8" height="97.6" rx="4.9" class="daily-bar"><title>2026-08-01: 87,952,556 tokens</title></rect>
   <text x="530" y="94" class="model-name">gpt-5.6-sol</text>
-  <text x="772" y="94" text-anchor="end" class="model-value">882.3M</text>
+  <text x="772" y="94" text-anchor="end" class="model-value">890.8M</text>
   <rect x="530" y="100" width="242" height="7" rx="3.5" class="model-track"/>
-  <rect x="530" y="100" width="242.0" height="7" rx="3.5" class="model-bar"><title>gpt-5.6-sol: 882,277,425 tokens</title></rect>
+  <rect x="530" y="100" width="242.0" height="7" rx="3.5" class="model-bar"><title>gpt-5.6-sol: 890,836,713 tokens</title></rect>
   <text x="530" y="121" class="model-name">gpt-5.5</text>
   <text x="772" y="121" text-anchor="end" class="model-value">756.9M</text>
   <rect x="530" y="127" width="242" height="7" rx="3.5" class="model-track"/>
-  <rect x="530" y="127" width="207.6" height="7" rx="3.5" class="model-bar"><title>gpt-5.5: 756,948,789 tokens</title></rect>
+  <rect x="530" y="127" width="205.6" height="7" rx="3.5" class="model-bar"><title>gpt-5.5: 756,948,789 tokens</title></rect>
   <text x="530" y="148" class="model-name">gpt-5.4</text>
   <text x="772" y="148" text-anchor="end" class="model-value">282.4M</text>
   <rect x="530" y="154" width="242" height="7" rx="3.5" class="model-track"/>
-  <rect x="530" y="154" width="77.5" height="7" rx="3.5" class="model-bar"><title>gpt-5.4: 282,407,156 tokens</title></rect>
+  <rect x="530" y="154" width="76.7" height="7" rx="3.5" class="model-bar"><title>gpt-5.4: 282,407,156 tokens</title></rect>
   <text x="530" y="175" class="model-name">codex-auto-review</text>
-  <text x="772" y="175" text-anchor="end" class="model-value">101.6M</text>
+  <text x="772" y="175" text-anchor="end" class="model-value">101.7M</text>
   <rect x="530" y="181" width="242" height="7" rx="3.5" class="model-track"/>
-  <rect x="530" y="181" width="27.9" height="7" rx="3.5" class="model-bar"><title>codex-auto-review: 101,569,650 tokens</title></rect>
+  <rect x="530" y="181" width="27.6" height="7" rx="3.5" class="model-bar"><title>codex-auto-review: 101,694,709 tokens</title></rect>
   <text x="530" y="202" class="model-name">mimo-v2.5-pro</text>
   <text x="772" y="202" text-anchor="end" class="model-value">85.3M</text>
   <rect x="530" y="208" width="242" height="7" rx="3.5" class="model-track"/>
-  <rect x="530" y="208" width="23.4" height="7" rx="3.5" class="model-bar"><title>mimo-v2.5-pro: 85,343,783 tokens</title></rect>
+  <rect x="530" y="208" width="23.2" height="7" rx="3.5" class="model-bar"><title>mimo-v2.5-pro: 85,343,783 tokens</title></rect>
 </svg>
