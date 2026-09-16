@@ -3,8 +3,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const inputPath = process.argv[2] ?? "response.json";
-const outputPath = process.argv[3] ?? "assets/token-usage.svg";
+const statsPath = process.argv[2] ?? "stats.json";
+const historyPath = process.argv[3] ?? "history.json";
+const outputPath = process.argv[4] ?? "assets/token-usage.svg";
+const windowDays = 30;
+const rankingSize = 5;
+const placeholderNames = new Set(["unknown", "<synthetic>"]);
 
 function fail(message) {
   console.error(`token-stats: ${message}`);
@@ -40,31 +44,44 @@ function compactNumber(value) {
   return value.toLocaleString("en-US");
 }
 
-let data;
-try {
-  data = JSON.parse(fs.readFileSync(inputPath, "utf8"));
-} catch (error) {
-  fail(`cannot read ${inputPath}: ${error.message}`);
+function readJson(filePath, label) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (error) {
+    fail(`cannot read ${label} from ${filePath}: ${error.message}`);
+  }
 }
 
-const rawDaily = data.historyPreview?.daily;
-if (!Array.isArray(rawDaily) || rawDaily.length === 0) {
-  fail("historyPreview.daily must contain at least one entry");
-}
-
-const daily = rawDaily
-  .map((entry) => ({
+function toDay(entry) {
+  for (const field of ["perModel", "perClient"]) {
+    if (!entry[field] || typeof entry[field] !== "object") {
+      fail(`history.daily entry ${entry.date} carries no ${field} breakdown`);
+    }
+  }
+  return {
     date: String(entry.date),
     tokens: numeric(entry.tokens, `tokens for ${entry.date}`),
-  }))
+    perModel: entry.perModel,
+    perClient: entry.perClient,
+  };
+}
+
+const stats = readJson(statsPath, "stats");
+const history = readJson(historyPath, "history");
+
+if (!Array.isArray(history.daily) || history.daily.length === 0) {
+  fail("history.daily must contain at least one entry");
+}
+
+const days = history.daily
+  .map(toDay)
   .sort((a, b) => a.date.localeCompare(b.date));
+const daily = days.slice(-Math.min(windowDays, days.length));
 const dailyTokens = daily.map((entry) => entry.tokens);
-const totalTokens = numeric(
-  data.historyPreview?.summary?.totalTokens ?? data.periods?.allTime?.totalTokens,
-  "all-time token total",
-);
-const updatedAt = new Date(data.updatedAt);
-if (Number.isNaN(updatedAt.valueOf())) fail("missing or invalid updatedAt");
+const totalTokens = numeric(history.summary?.totalTokens, "all-time token total");
+if (typeof stats.updatedAt !== "string") fail("missing or invalid updatedAt");
+const updatedAt = new Date(stats.updatedAt);
+if (Number.isNaN(updatedAt.valueOf())) fail("invalid updatedAt");
 const updatedLabel = new Intl.DateTimeFormat("en", {
   year: "numeric",
   month: "long",
@@ -72,25 +89,44 @@ const updatedLabel = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
 }).format(updatedAt);
 
-const allTimeModels = data.periods?.allTime?.models;
-if (!allTimeModels || typeof allTimeModels !== "object") {
-  fail("periods.allTime.models must be an object");
+function rankByTokens(field, label) {
+  const totals = new Map();
+  for (const day of daily) {
+    for (const [name, entry] of Object.entries(day[field])) {
+      if (placeholderNames.has(name)) continue;
+      const tokens = numeric(
+        entry?.tokens,
+        `tokens for ${label} ${name} on ${day.date}`,
+      );
+      if (tokens <= 0) continue;
+      totals.set(name, (totals.get(name) ?? 0) + tokens);
+    }
+  }
+  const ranked = [...totals]
+    .map(([name, tokens]) => ({ name, tokens }))
+    .sort((a, b) => b.tokens - a.tokens)
+    .slice(0, rankingSize);
+  if (ranked.length === 0) {
+    fail(`the usage window carries no usable ${label} entries`);
+  }
+  return ranked;
 }
-const topModels = Object.entries(allTimeModels)
-  .filter(([model, tokens]) => model !== "unknown" && Number(tokens) > 0)
-  .map(([model, tokens]) => ({
-    model,
-    tokens: numeric(tokens, `tokens for model ${model}`),
-  }))
-  .sort((a, b) => b.tokens - a.tokens)
-  .slice(0, 5);
-if (topModels.length === 0) fail("periods.allTime.models has no usable entries");
 
-const chartLeft = 28;
-const chartWidth = 460;
+const topModels = rankByTokens("perModel", "model");
+const topAgents = rankByTokens("perClient", "agent");
+
+const canvasWidth = 960;
+const margin = 28;
+const chartLeft = margin;
+const chartWidth = 380;
 const chartTop = 82;
 const chartBottom = 204;
 const chartHeight = chartBottom - chartTop;
+const panelWidth = 222;
+const panelGap = 40;
+const panelRight = canvasWidth - margin;
+const modelPanelLeft = panelRight - panelWidth * 2 - panelGap;
+const agentPanelLeft = panelRight - panelWidth;
 const maxDaily = Math.max(...dailyTokens, 1);
 const daySlot = chartWidth / daily.length;
 const barWidth = Math.min(10, daySlot * 0.64);
@@ -110,24 +146,32 @@ const bars = daily
   })
   .join("\n");
 
-const modelTrackLeft = 530;
-const modelTrackWidth = 242;
-const modelMax = topModels[0].tokens;
-const modelRows = topModels
-  .map((entry, index) => {
-    const labelY = 75 + index * 29;
-    const trackY = labelY + 6;
-    const width = Math.max(4, (entry.tokens / modelMax) * modelTrackWidth);
-    return `  <text x="${modelTrackLeft}" y="${labelY}" class="model-name">${escapeXml(entry.model)}</text>
-  <text x="${modelTrackLeft + modelTrackWidth}" y="${labelY}" text-anchor="end" class="model-value">${escapeXml(compactNumber(entry.tokens))}</text>
-  <rect x="${modelTrackLeft}" y="${trackY}" width="${modelTrackWidth}" height="7" rx="3.5" class="model-track"/>
-  <rect x="${modelTrackLeft}" y="${trackY}" width="${width.toFixed(1)}" height="7" rx="3.5" class="model-bar"><title>${escapeXml(entry.model)}: ${escapeXml(entry.tokens.toLocaleString("en-US"))} tokens</title></rect>`;
-  })
-  .join("\n");
+function rankingRows(entries, panelLeft) {
+  const panelMax = entries[0].tokens;
+  return entries
+    .map((entry, index) => {
+      const labelY = 75 + index * 29;
+      const trackY = labelY + 6;
+      const width = Math.max(4, (entry.tokens / panelMax) * panelWidth);
+      const tooltip = `${entry.name}: ${entry.tokens.toLocaleString("en-US")} tokens over the last ${daily.length} active days`;
+      return `  <text x="${panelLeft}" y="${labelY}" class="ranking-name">${escapeXml(entry.name)}</text>
+  <text x="${panelLeft + panelWidth}" y="${labelY}" text-anchor="end" class="ranking-value">${escapeXml(compactNumber(entry.tokens))}</text>
+  <rect x="${panelLeft}" y="${trackY}" width="${panelWidth}" height="7" rx="3.5" class="ranking-track"/>
+  <rect x="${panelLeft}" y="${trackY}" width="${width.toFixed(1)}" height="7" rx="3.5" class="ranking-bar"><title>${escapeXml(tooltip)}</title></rect>`;
+    })
+    .join("\n");
+}
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="210" viewBox="0 30 800 210" role="img" aria-labelledby="title desc">
+const modelRows = rankingRows(topModels, modelPanelLeft);
+const agentRows = rankingRows(topAgents, agentPanelLeft);
+const chartCaptionX = chartLeft + chartWidth / 2;
+const modelCaptionX = modelPanelLeft + panelWidth / 2;
+const agentCaptionX = agentPanelLeft + panelWidth / 2;
+const windowLabel = `last ${daily.length} active days`;
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" height="210" viewBox="0 30 ${canvasWidth} 210" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage for the most recent ${daily.length} active days and the five most-used models of all time, with ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens used as of ${escapeXml(updatedLabel)}.</desc>
+  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last ${daily.length} active days, with ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens used in total as of ${escapeXml(updatedLabel)}.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 13px; font-weight: 500; }
@@ -135,18 +179,20 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="210" vi
     .daily-bar { fill: #47a042; fill-opacity: 0.62; }
     .daily-bar.peak { fill: #1d6a23; fill-opacity: 0.9; }
     .peak-value { fill: #1d6a23; font-size: 10px; font-weight: 500; font-variant-numeric: tabular-nums; }
-    .model-name { fill: #00000f; font-size: 10.5px; font-weight: 500; }
-    .model-value { fill: gray; font-size: 10px; font-variant-numeric: tabular-nums; }
-    .model-track { fill: #efefef; }
-    .model-bar { fill: #47a042; }
+    .ranking-name { fill: #00000f; font-size: 10.5px; font-weight: 500; }
+    .ranking-value { fill: gray; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .ranking-track { fill: #efefef; }
+    .ranking-bar { fill: #47a042; }
   </style>
-  <rect width="800" height="240" fill="#ffffff"/>
-  <text x="400" y="46" text-anchor="middle" class="total">All-time token usage: ${escapeXml(totalTokens.toLocaleString("en-US"))} as of ${escapeXml(updatedLabel)}</text>
+  <rect width="${canvasWidth}" height="240" fill="#ffffff"/>
+  <text x="${canvasWidth / 2}" y="46" text-anchor="middle" class="total">All-time token usage: ${escapeXml(totalTokens.toLocaleString("en-US"))} as of ${escapeXml(updatedLabel)}</text>
 ${bars}
 ${peakLabel}
 ${modelRows}
-  <text x="258" y="226" text-anchor="middle" class="section">Daily usage · last ${daily.length} active days</text>
-  <text x="651" y="226" text-anchor="middle" class="section">Top models · all time</text>
+${agentRows}
+  <text x="${chartCaptionX}" y="226" text-anchor="middle" class="section">Daily usage · ${windowLabel}</text>
+  <text x="${modelCaptionX}" y="226" text-anchor="middle" class="section">Top models · ${windowLabel}</text>
+  <text x="${agentCaptionX}" y="226" text-anchor="middle" class="section">Top agents · ${windowLabel}</text>
 </svg>
 `;
 

@@ -24,15 +24,17 @@ jobs:
           TOKEN_HUB_MONITOR: ${{ secrets.TOKEN_HUB_MONITOR }}
         run: |
           test -n "$TOKEN_HUB_MONITOR"
-          curl --fail-with-body --silent --show-error \
-            --retry 3 --retry-all-errors \
-            "https://token-monitor-hub.liuup.workers.dev/api/stats" \
-            -H "Authorization: Bearer $TOKEN_HUB_MONITOR" \
-            -H "Content-Type: application/json" \
-            --output "$RUNNER_TEMP/token-stats.json"
+          for endpoint in stats history; do
+            curl --fail-with-body --silent --show-error \
+              --retry 3 --retry-all-errors \
+              "https://token-monitor-hub.liuup.workers.dev/api/$endpoint" \
+              -H "Authorization: Bearer $TOKEN_HUB_MONITOR" \
+              -H "Content-Type: application/json" \
+              --output "$RUNNER_TEMP/token-$endpoint.json"
+          done
 
       - name: Generate SVG
-        run: node scripts/generate-token-stats.js "$RUNNER_TEMP/token-stats.json" assets/token-usage.svg
+        run: node scripts/generate-token-stats.js "$RUNNER_TEMP/token-stats.json" "$RUNNER_TEMP/token-history.json" assets/token-usage.svg
 
       - name: Commit updated card
         run: |
