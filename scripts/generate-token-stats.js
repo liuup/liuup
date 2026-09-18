@@ -174,13 +174,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" heig
   <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last ${daily.length} active days, with ${escapeXml(totalTokens.toLocaleString("en-US"))} tokens used in total as of ${escapeXml(updatedLabel)}.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
-    .total { fill: #00000f; font-size: 13px; font-weight: 500; }
-    .section { fill: gray; font-size: 11px; font-weight: 400; }
+    .total { fill: #00000f; font-size: 15px; font-weight: 500; }
+    .section { fill: gray; font-size: 13px; font-weight: 400; }
     .daily-bar { fill: #47a042; fill-opacity: 0.62; }
     .daily-bar.peak { fill: #1d6a23; fill-opacity: 0.9; }
-    .peak-value { fill: #1d6a23; font-size: 10px; font-weight: 500; font-variant-numeric: tabular-nums; }
-    .ranking-name { fill: #00000f; font-size: 10.5px; font-weight: 500; }
-    .ranking-value { fill: gray; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .peak-value { fill: #1d6a23; font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
+    .ranking-name { fill: #00000f; font-size: 12.5px; font-weight: 500; }
+    .ranking-value { fill: gray; font-size: 12px; font-variant-numeric: tabular-nums; }
     .ranking-track { fill: #efefef; }
     .ranking-bar { fill: #47a042; }
   </style>
