@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="210" viewBox="0 30 960 210" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last 30 active days, with 8,139,531,775 tokens used in total as of October 11, 2026.</desc>
+  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last 30 active days, with 8,174,791,668 tokens used in total as of October 12, 2026.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 15px; font-weight: 500; }
@@ -14,7 +14,7 @@
     .ranking-bar { fill: #47a042; }
   </style>
   <rect width="960" height="240" fill="#ffffff"/>
-  <text x="480" y="46" text-anchor="middle" class="total">All-time token usage: 8,139,531,775 as of October 11, 2026</text>
+  <text x="480" y="46" text-anchor="middle" class="total">All-time token usage: 8,174,791,668 as of October 12, 2026</text>
   <rect x="30.3" y="110.1" width="8.1" height="93.9" rx="4.1" class="daily-bar"><title>2026-09-09: 182,294,683 tokens</title></rect>
   <rect x="42.9" y="141.5" width="8.1" height="62.5" rx="4.1" class="daily-bar"><title>2026-09-10: 121,323,444 tokens</title></rect>
   <rect x="55.6" y="170.0" width="8.1" height="34.0" rx="4.1" class="daily-bar"><title>2026-09-11: 65,974,692 tokens</title></rect>
@@ -44,16 +44,16 @@
   <rect x="359.6" y="151.5" width="8.1" height="52.5" rx="4.1" class="daily-bar"><title>2026-10-07: 101,869,166 tokens</title></rect>
   <rect x="372.3" y="190.6" width="8.1" height="13.4" rx="4.1" class="daily-bar"><title>2026-10-09: 26,052,257 tokens</title></rect>
   <rect x="384.9" y="175.5" width="8.1" height="28.5" rx="4.1" class="daily-bar"><title>2026-10-10: 55,273,703 tokens</title></rect>
-  <rect x="397.6" y="197.2" width="8.1" height="6.8" rx="4.1" class="daily-bar"><title>2026-10-11: 13,201,398 tokens</title></rect>
+  <rect x="397.6" y="179.3" width="8.1" height="24.7" rx="4.1" class="daily-bar"><title>2026-10-11: 47,884,196 tokens</title></rect>
   <text x="161.0" y="75" text-anchor="middle" class="peak-value">236,795,602</text>
   <text x="448" y="75" class="ranking-name">gpt-5.6-sol</text>
   <text x="670" y="75" text-anchor="end" class="ranking-value">1B</text>
   <rect x="448" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
   <rect x="448" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>gpt-5.6-sol: 1,009,356,787 tokens over the last 30 active days</title></rect>
   <text x="448" y="104" class="ranking-name">deepseek-v4.1-flash</text>
-  <text x="670" y="104" text-anchor="end" class="ranking-value">585.7M</text>
+  <text x="670" y="104" text-anchor="end" class="ranking-value">620.4M</text>
   <rect x="448" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="110" width="128.8" height="7" rx="3.5" class="ranking-bar"><title>deepseek-v4.1-flash: 585,712,087 tokens over the last 30 active days</title></rect>
+  <rect x="448" y="110" width="136.5" height="7" rx="3.5" class="ranking-bar"><title>deepseek-v4.1-flash: 620,394,885 tokens over the last 30 active days</title></rect>
   <text x="448" y="133" class="ranking-name">deepseek-flash</text>
   <text x="670" y="133" text-anchor="end" class="ranking-value">424.5M</text>
   <rect x="448" y="139" width="222" height="7" rx="3.5" class="ranking-track"/>
@@ -71,13 +71,13 @@
   <rect x="710" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
   <rect x="710" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>codex: 1,275,326,440 tokens over the last 30 active days</title></rect>
   <text x="710" y="104" class="ranking-name">pi</text>
-  <text x="932" y="104" text-anchor="end" class="ranking-value">947.7M</text>
+  <text x="932" y="104" text-anchor="end" class="ranking-value">982.3M</text>
   <rect x="710" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="110" width="165.0" height="7" rx="3.5" class="ranking-bar"><title>pi: 947,650,473 tokens over the last 30 active days</title></rect>
+  <rect x="710" y="110" width="171.0" height="7" rx="3.5" class="ranking-bar"><title>pi: 982,321,274 tokens over the last 30 active days</title></rect>
   <text x="710" y="133" class="ranking-name">dsh</text>
   <text x="932" y="133" text-anchor="end" class="ranking-value">63.1M</text>
   <rect x="710" y="139" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="139" width="11.0" height="7" rx="3.5" class="ranking-bar"><title>dsh: 63,119,675 tokens over the last 30 active days</title></rect>
+  <rect x="710" y="139" width="11.0" height="7" rx="3.5" class="ranking-bar"><title>dsh: 63,131,672 tokens over the last 30 active days</title></rect>
   <text x="710" y="162" class="ranking-name">opencode</text>
   <text x="932" y="162" text-anchor="end" class="ranking-value">405.3K</text>
   <rect x="710" y="168" width="222" height="7" rx="3.5" class="ranking-track"/>
