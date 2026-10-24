@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="210" viewBox="0 30 960 210" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last 30 active days, with 10,813,265,969 tokens used in total as of October 23, 2026.</desc>
+  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last 30 active days, with 10,814,626,449 tokens used in total as of October 24, 2026.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 15px; font-weight: 500; }
@@ -14,7 +14,7 @@
     .ranking-bar { fill: #47a042; }
   </style>
   <rect width="960" height="240" fill="#ffffff"/>
-  <text x="480" y="46" text-anchor="middle" class="total">All-time token usage: 10,813,265,969 as of October 23, 2026</text>
+  <text x="480" y="46" text-anchor="middle" class="total">All-time token usage: 10,814,626,449 as of October 24, 2026</text>
   <rect x="30.3" y="175.8" width="8.1" height="28.2" rx="4.1" class="daily-bar"><title>2026-09-19: 238,041,063 tokens</title></rect>
   <rect x="42.9" y="195.3" width="8.1" height="8.7" rx="4.1" class="daily-bar"><title>2026-09-20: 73,380,228 tokens</title></rect>
   <rect x="55.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-09-21: 12,773,233 tokens</title></rect>
@@ -44,12 +44,12 @@
   <rect x="359.6" y="136.3" width="8.1" height="67.7" rx="4.1" class="daily-bar"><title>2026-10-20: 572,489,975 tokens</title></rect>
   <rect x="372.3" y="82.0" width="8.1" height="122.0" rx="4.1" class="daily-bar peak"><title>2026-10-21: 1,031,414,882 tokens</title></rect>
   <rect x="384.9" y="186.4" width="8.1" height="17.6" rx="4.1" class="daily-bar"><title>2026-10-22: 148,714,871 tokens</title></rect>
-  <rect x="397.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-23: 3,429,653 tokens</title></rect>
+  <rect x="397.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-23: 4,790,133 tokens</title></rect>
   <text x="376.3" y="75" text-anchor="middle" class="peak-value">1,031,414,882</text>
   <text x="448" y="75" class="ranking-name">deepseek-v4.1-flash</text>
   <text x="670" y="75" text-anchor="end" class="ranking-value">2.8B</text>
   <rect x="448" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>deepseek-v4.1-flash: 2,839,692,007 tokens over the last 30 active days</title></rect>
+  <rect x="448" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>deepseek-v4.1-flash: 2,840,035,255 tokens over the last 30 active days</title></rect>
   <text x="448" y="104" class="ranking-name">dfmodel</text>
   <text x="670" y="104" text-anchor="end" class="ranking-value">250.2M</text>
   <rect x="448" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
@@ -69,7 +69,7 @@
   <text x="710" y="75" class="ranking-name">claude</text>
   <text x="932" y="75" text-anchor="end" class="ranking-value">2.4B</text>
   <rect x="710" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>claude: 2,410,741,115 tokens over the last 30 active days</title></rect>
+  <rect x="710" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>claude: 2,412,101,595 tokens over the last 30 active days</title></rect>
   <text x="710" y="104" class="ranking-name">pi</text>
   <text x="932" y="104" text-anchor="end" class="ranking-value">968.8M</text>
   <rect x="710" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
@@ -77,7 +77,7 @@
   <text x="710" y="133" class="ranking-name">codex</text>
   <text x="932" y="133" text-anchor="end" class="ranking-value">387.2M</text>
   <rect x="710" y="139" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="139" width="35.7" height="7" rx="3.5" class="ranking-bar"><title>codex: 387,215,516 tokens over the last 30 active days</title></rect>
+  <rect x="710" y="139" width="35.6" height="7" rx="3.5" class="ranking-bar"><title>codex: 387,215,516 tokens over the last 30 active days</title></rect>
   <text x="710" y="162" class="ranking-name">dsh</text>
   <text x="932" y="162" text-anchor="end" class="ranking-value">60.3M</text>
   <rect x="710" y="168" width="222" height="7" rx="3.5" class="ranking-track"/>
