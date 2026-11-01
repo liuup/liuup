@@ -1,6 +1,10 @@
 name: Token usage card
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - assets/token-usage.svg
   schedule:
     - cron: "15 5 * * *"
   workflow_dispatch:

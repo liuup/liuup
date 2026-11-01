@@ -1,92 +1,372 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="210" viewBox="0 30 960 210" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="185" viewBox="0 0 960 185" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage, the five most-used models and the five most-used agents over the last 30 active days, with 11,768,177,670 tokens used in total as of November 01, 2026.</desc>
+  <desc id="desc">Daily token usage for the last 52 weeks as a heatmap (days without usage shown as zero): week index on the x-axis, day of week on the y-axis, values normalized to 0–1 and coloured with the matplotlib Oranges colormap, with 11,789,895,696 tokens used in total as of November 01, 2026.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 15px; font-weight: 500; }
-    .section { fill: gray; font-size: 13px; font-weight: 400; }
-    .daily-bar { fill: #47a042; fill-opacity: 0.62; }
-    .daily-bar.peak { fill: #1d6a23; fill-opacity: 0.9; }
-    .peak-value { fill: #1d6a23; font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
-    .ranking-name { fill: #00000f; font-size: 12.5px; font-weight: 500; }
-    .ranking-value { fill: gray; font-size: 12px; font-variant-numeric: tabular-nums; }
-    .ranking-track { fill: #efefef; }
-    .ranking-bar { fill: #47a042; }
+    .axis-label { fill: gray; font-size: 11px; }
   </style>
-  <rect width="960" height="240" fill="#ffffff"/>
-  <text x="480" y="46" text-anchor="middle" class="total">All-time token usage: 11,768,177,670 as of November 01, 2026</text>
-  <rect x="30.3" y="197.9" width="8.1" height="6.1" rx="4.1" class="daily-bar"><title>2026-09-30: 51,769,091 tokens</title></rect>
-  <rect x="42.9" y="201.5" width="8.1" height="2.5" rx="4.1" class="daily-bar"><title>2026-10-01: 20,863,290 tokens</title></rect>
-  <rect x="55.6" y="194.6" width="8.1" height="9.4" rx="4.1" class="daily-bar"><title>2026-10-02: 79,815,787 tokens</title></rect>
-  <rect x="68.3" y="191.6" width="8.1" height="12.4" rx="4.1" class="daily-bar"><title>2026-10-03: 104,555,384 tokens</title></rect>
-  <rect x="80.9" y="181.4" width="8.1" height="22.6" rx="4.1" class="daily-bar"><title>2026-10-04: 190,731,453 tokens</title></rect>
-  <rect x="93.6" y="201.9" width="8.1" height="2.1" rx="4.1" class="daily-bar"><title>2026-10-05: 17,928,101 tokens</title></rect>
-  <rect x="106.3" y="198.7" width="8.1" height="5.3" rx="4.1" class="daily-bar"><title>2026-10-06: 44,734,715 tokens</title></rect>
-  <rect x="118.9" y="191.9" width="8.1" height="12.1" rx="4.1" class="daily-bar"><title>2026-10-07: 102,252,416 tokens</title></rect>
-  <rect x="131.6" y="200.9" width="8.1" height="3.1" rx="4.1" class="daily-bar"><title>2026-10-09: 26,052,257 tokens</title></rect>
-  <rect x="144.3" y="191.8" width="8.1" height="12.2" rx="4.1" class="daily-bar"><title>2026-10-10: 103,143,846 tokens</title></rect>
-  <rect x="156.9" y="197.7" width="8.1" height="6.3" rx="4.1" class="daily-bar"><title>2026-10-11: 52,856,659 tokens</title></rect>
-  <rect x="169.6" y="187.2" width="8.1" height="16.8" rx="4.1" class="daily-bar"><title>2026-10-12: 141,772,354 tokens</title></rect>
-  <rect x="182.3" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-13: 16,102,112 tokens</title></rect>
-  <rect x="194.9" y="178.4" width="8.1" height="25.6" rx="4.1" class="daily-bar"><title>2026-10-14: 216,806,835 tokens</title></rect>
-  <rect x="207.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-15: 22,624 tokens</title></rect>
-  <rect x="220.3" y="181.9" width="8.1" height="22.1" rx="4.1" class="daily-bar"><title>2026-10-18: 187,125,226 tokens</title></rect>
-  <rect x="232.9" y="173.3" width="8.1" height="30.7" rx="4.1" class="daily-bar"><title>2026-10-19: 259,891,152 tokens</title></rect>
-  <rect x="245.6" y="136.3" width="8.1" height="67.7" rx="4.1" class="daily-bar"><title>2026-10-20: 572,489,975 tokens</title></rect>
-  <rect x="258.3" y="82.0" width="8.1" height="122.0" rx="4.1" class="daily-bar peak"><title>2026-10-21: 1,031,414,882 tokens</title></rect>
-  <rect x="270.9" y="186.4" width="8.1" height="17.6" rx="4.1" class="daily-bar"><title>2026-10-22: 148,714,871 tokens</title></rect>
-  <rect x="283.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-23: 4,790,133 tokens</title></rect>
-  <rect x="296.3" y="198.8" width="8.1" height="5.2" rx="4.1" class="daily-bar"><title>2026-10-24: 43,648,947 tokens</title></rect>
-  <rect x="308.9" y="188.4" width="8.1" height="15.6" rx="4.1" class="daily-bar"><title>2026-10-25: 131,615,190 tokens</title></rect>
-  <rect x="321.6" y="194.1" width="8.1" height="9.9" rx="4.1" class="daily-bar"><title>2026-10-26: 84,095,016 tokens</title></rect>
-  <rect x="334.3" y="176.8" width="8.1" height="27.2" rx="4.1" class="daily-bar"><title>2026-10-27: 229,874,996 tokens</title></rect>
-  <rect x="346.9" y="170.7" width="8.1" height="33.3" rx="4.1" class="daily-bar"><title>2026-10-28: 281,762,246 tokens</title></rect>
-  <rect x="359.6" y="197.9" width="8.1" height="6.1" rx="4.1" class="daily-bar"><title>2026-10-29: 51,431,326 tokens</title></rect>
-  <rect x="372.3" y="190.4" width="8.1" height="13.6" rx="4.1" class="daily-bar"><title>2026-10-30: 114,980,494 tokens</title></rect>
-  <rect x="384.9" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-10-31: 14,238,139 tokens</title></rect>
-  <rect x="397.6" y="202.0" width="8.1" height="2.0" rx="4.1" class="daily-bar"><title>2026-11-01: 1,904,867 tokens</title></rect>
-  <text x="262.3" y="75" text-anchor="middle" class="peak-value">1,031,414,882</text>
-  <text x="448" y="75" class="ranking-name">deepseek-v4.1-flash</text>
-  <text x="670" y="75" text-anchor="end" class="ranking-value">3.5B</text>
-  <rect x="448" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>deepseek-v4.1-flash: 3,477,224,175 tokens over the last 30 active days</title></rect>
-  <text x="448" y="104" class="ranking-name">claude-opus-5-5</text>
-  <text x="670" y="104" text-anchor="end" class="ranking-value">291.6M</text>
-  <rect x="448" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="110" width="18.6" height="7" rx="3.5" class="ranking-bar"><title>claude-opus-5-5: 291,613,210 tokens over the last 30 active days</title></rect>
-  <text x="448" y="133" class="ranking-name">dfmodel</text>
-  <text x="670" y="133" text-anchor="end" class="ranking-value">250.2M</text>
-  <rect x="448" y="139" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="139" width="16.0" height="7" rx="3.5" class="ranking-bar"><title>dfmodel: 250,172,352 tokens over the last 30 active days</title></rect>
-  <text x="448" y="162" class="ranking-name">muse-spark-1.3-contributor</text>
-  <text x="670" y="162" text-anchor="end" class="ranking-value">127.4M</text>
-  <rect x="448" y="168" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="168" width="8.1" height="7" rx="3.5" class="ranking-bar"><title>muse-spark-1.3-contributor: 127,423,024 tokens over the last 30 active days</title></rect>
-  <text x="448" y="191" class="ranking-name">gpt-6-astra</text>
-  <text x="670" y="191" text-anchor="end" class="ranking-value">67.1M</text>
-  <rect x="448" y="197" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="448" y="197" width="4.3" height="7" rx="3.5" class="ranking-bar"><title>gpt-6-astra: 67,082,312 tokens over the last 30 active days</title></rect>
-  <text x="710" y="75" class="ranking-name">claude</text>
-  <text x="932" y="75" text-anchor="end" class="ranking-value">3.3B</text>
-  <rect x="710" y="81" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="81" width="222.0" height="7" rx="3.5" class="ranking-bar"><title>claude: 3,329,304,206 tokens over the last 30 active days</title></rect>
-  <text x="710" y="104" class="ranking-name">pi</text>
-  <text x="932" y="104" text-anchor="end" class="ranking-value">836M</text>
-  <rect x="710" y="110" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="110" width="55.7" height="7" rx="3.5" class="ranking-bar"><title>pi: 836,029,181 tokens over the last 30 active days</title></rect>
-  <text x="710" y="133" class="ranking-name">codex</text>
-  <text x="932" y="133" text-anchor="end" class="ranking-value">88.1M</text>
-  <rect x="710" y="139" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="139" width="5.9" height="7" rx="3.5" class="ranking-bar"><title>codex: 88,122,073 tokens over the last 30 active days</title></rect>
-  <text x="710" y="162" class="ranking-name">dsh</text>
-  <text x="932" y="162" text-anchor="end" class="ranking-value">73.4M</text>
-  <rect x="710" y="168" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="168" width="4.9" height="7" rx="3.5" class="ranking-bar"><title>dsh: 73,402,122 tokens over the last 30 active days</title></rect>
-  <text x="710" y="191" class="ranking-name">workbuddy</text>
-  <text x="932" y="191" text-anchor="end" class="ranking-value">499.6K</text>
-  <rect x="710" y="197" width="222" height="7" rx="3.5" class="ranking-track"/>
-  <rect x="710" y="197" width="4.0" height="7" rx="3.5" class="ranking-bar"><title>workbuddy: 499,597 tokens over the last 30 active days</title></rect>
-  <text x="218" y="226" text-anchor="middle" class="section">Daily usage · last 30 active days</text>
-  <text x="559" y="226" text-anchor="middle" class="section">Top models · last 30 active days</text>
-  <text x="821" y="226" text-anchor="middle" class="section">Top agents · last 30 active days</text>
+  <rect width="960" height="185" fill="#ffffff"/>
+  <text x="480" y="30" text-anchor="middle" class="total">All-time token usage: 11,789,895,696 as of November 01, 2026</text>
+  <rect rx="1.5" x="56.75" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-09 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-10 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-11 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-12 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-13 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-14 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="56.75" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-15 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-16 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-17 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-18 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-19 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-20 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-21 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="73.67" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-22 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-23 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-24 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-25 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-26 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-27 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-28 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="90.60" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-29 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-30 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-01 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-02 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-03 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-04 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-05 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="107.52" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-06 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-07 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-08 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-09 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-10 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-11 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-12 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="124.44" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-13 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-14 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-15 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-16 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-17 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-18 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-19 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="141.37" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-20 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-21 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-22 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-23 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-24 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-25 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-26 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="158.29" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-27 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-28 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-29 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-30 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-12-31 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-01 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-02 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="175.21" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-03 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-04 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-05 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-06 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-07 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-08 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-09 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="192.13" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-10 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-11 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-12 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-13 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-14 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-15 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-16 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="209.06" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-17 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-18 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-19 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-20 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-21 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-22 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-23 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="225.98" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-24 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-25 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-26 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-27 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-28 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-29 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-30 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="242.90" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-01-31 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-01 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-02 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-03 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-04 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-05 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-06 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="259.83" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-07 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-08 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-09 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-10 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-11 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-12 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-13 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="276.75" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-14 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-15 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-16 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-17 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-18 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-19 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-20 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="293.67" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-21 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="48.75" width="15.42" height="15.42" fill="#fff4e9"><title>2026-02-22 · Sunday · 15,816 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="65.67" width="15.42" height="15.42" fill="#fdd9b4"><title>2026-02-23 · Monday · 8,524,675 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-24 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-25 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-26 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-27 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="310.60" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-02-28 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-01 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="65.67" width="15.42" height="15.42" fill="#fff3e8"><title>2026-03-02 · Monday · 47,020 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-03 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-04 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-05 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-06 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="327.52" y="150.29" width="15.42" height="15.42" fill="#fdb677"><title>2026-03-07 · Saturday · 25,872,302 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="48.75" width="15.42" height="15.42" fill="#fdd0a1"><title>2026-03-08 · Sunday · 13,702,659 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="65.67" width="15.42" height="15.42" fill="#fee9d4"><title>2026-03-09 · Monday · 2,117,726 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="82.60" width="15.42" height="15.42" fill="#fddbb8"><title>2026-03-10 · Tuesday · 7,717,874 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="99.52" width="15.42" height="15.42" fill="#feeddb"><title>2026-03-11 · Wednesday · 1,031,970 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-12 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="133.37" width="15.42" height="15.42" fill="#fee8d1"><title>2026-03-13 · Friday · 2,685,473 tokens</title></rect>
+  <rect rx="1.5" x="344.44" y="150.29" width="15.42" height="15.42" fill="#fedcba"><title>2026-03-14 · Saturday · 7,181,077 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="48.75" width="15.42" height="15.42" fill="#feecd9"><title>2026-03-15 · Sunday · 1,299,468 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="65.67" width="15.42" height="15.42" fill="#e15307"><title>2026-03-16 · Monday · 107,839,701 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="82.60" width="15.42" height="15.42" fill="#fda35b"><title>2026-03-17 · Tuesday · 37,357,398 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="99.52" width="15.42" height="15.42" fill="#fee5cc"><title>2026-03-18 · Wednesday · 3,661,962 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="116.44" width="15.42" height="15.42" fill="#fdc590"><title>2026-03-19 · Thursday · 18,288,519 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="133.37" width="15.42" height="15.42" fill="#fedcba"><title>2026-03-20 · Friday · 7,271,248 tokens</title></rect>
+  <rect rx="1.5" x="361.37" y="150.29" width="15.42" height="15.42" fill="#fa8331"><title>2026-03-21 · Saturday · 61,262,642 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="48.75" width="15.42" height="15.42" fill="#feecd9"><title>2026-03-22 · Sunday · 1,285,232 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="65.67" width="15.42" height="15.42" fill="#fdcfa0"><title>2026-03-23 · Monday · 14,028,913 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="82.60" width="15.42" height="15.42" fill="#fff2e4"><title>2026-03-24 · Tuesday · 172,219 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="99.52" width="15.42" height="15.42" fill="#fdd9b5"><title>2026-03-25 · Wednesday · 8,441,576 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="116.44" width="15.42" height="15.42" fill="#feebd8"><title>2026-03-26 · Thursday · 1,433,640 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="133.37" width="15.42" height="15.42" fill="#fedcb9"><title>2026-03-27 · Friday · 7,330,954 tokens</title></rect>
+  <rect rx="1.5" x="378.29" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-28 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="48.75" width="15.42" height="15.42" fill="#ffeede"><title>2026-03-29 · Sunday · 692,619 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-03-30 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="82.60" width="15.42" height="15.42" fill="#fc8938"><title>2026-03-31 · Tuesday · 56,477,723 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="99.52" width="15.42" height="15.42" fill="#fee5cb"><title>2026-04-01 · Wednesday · 3,798,569 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="116.44" width="15.42" height="15.42" fill="#fee9d5"><title>2026-04-02 · Thursday · 2,029,584 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-03 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="395.21" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-04 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-05 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-06 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-07 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-08 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-09 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-10 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="412.13" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-11 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="48.75" width="15.42" height="15.42" fill="#feecda"><title>2026-04-12 · Sunday · 1,147,704 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-13 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-14 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="99.52" width="15.42" height="15.42" fill="#feeddc"><title>2026-04-15 · Wednesday · 847,018 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-16 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="133.37" width="15.42" height="15.42" fill="#feeddb"><title>2026-04-17 · Friday · 1,016,366 tokens</title></rect>
+  <rect rx="1.5" x="429.06" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-18 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-19 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-20 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-21 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="99.52" width="15.42" height="15.42" fill="#fdce9f"><title>2026-04-22 · Wednesday · 14,186,023 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="116.44" width="15.42" height="15.42" fill="#feead5"><title>2026-04-23 · Thursday · 1,898,654 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-24 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="445.98" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-25 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-26 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="65.67" width="15.42" height="15.42" fill="#ffefe0"><title>2026-04-27 · Monday · 487,153 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="82.60" width="15.42" height="15.42" fill="#ffefe0"><title>2026-04-28 · Tuesday · 467,658 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="99.52" width="15.42" height="15.42" fill="#fdbb7f"><title>2026-04-29 · Wednesday · 23,374,346 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-04-30 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-01 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="462.90" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-02 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-03 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-04 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-05 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-06 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="116.44" width="15.42" height="15.42" fill="#fee7cf"><title>2026-05-07 · Thursday · 3,118,634 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="133.37" width="15.42" height="15.42" fill="#fddab7"><title>2026-05-08 · Friday · 7,953,269 tokens</title></rect>
+  <rect rx="1.5" x="479.83" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-09 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-10 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-11 · Monday · 0 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-12 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="99.52" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-13 · Wednesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="116.44" width="15.42" height="15.42" fill="#feeddb"><title>2026-05-14 · Thursday · 975,959 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="133.37" width="15.42" height="15.42" fill="#fee9d3"><title>2026-05-15 · Friday · 2,262,131 tokens</title></rect>
+  <rect rx="1.5" x="496.75" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-16 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-17 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="65.67" width="15.42" height="15.42" fill="#ffeede"><title>2026-05-18 · Monday · 636,575 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="82.60" width="15.42" height="15.42" fill="#fdc793"><title>2026-05-19 · Tuesday · 17,404,721 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="99.52" width="15.42" height="15.42" fill="#ffefdf"><title>2026-05-20 · Wednesday · 575,101 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="116.44" width="15.42" height="15.42" fill="#ffefdf"><title>2026-05-21 · Thursday · 560,688 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="133.37" width="15.42" height="15.42" fill="#ffeedd"><title>2026-05-22 · Friday · 739,164 tokens</title></rect>
+  <rect rx="1.5" x="513.67" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-05-23 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="48.75" width="15.42" height="15.42" fill="#feebd7"><title>2026-05-24 · Sunday · 1,631,929 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="65.67" width="15.42" height="15.42" fill="#fdd5ac"><title>2026-05-25 · Monday · 10,540,204 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="82.60" width="15.42" height="15.42" fill="#fdd0a2"><title>2026-05-26 · Tuesday · 13,529,870 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="99.52" width="15.42" height="15.42" fill="#fee6ce"><title>2026-05-27 · Wednesday · 3,445,885 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="116.44" width="15.42" height="15.42" fill="#fee7cf"><title>2026-05-28 · Thursday · 3,089,913 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="133.37" width="15.42" height="15.42" fill="#feecda"><title>2026-05-29 · Friday · 1,139,000 tokens</title></rect>
+  <rect rx="1.5" x="530.60" y="150.29" width="15.42" height="15.42" fill="#fdc18a"><title>2026-05-30 · Saturday · 20,080,852 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="48.75" width="15.42" height="15.42" fill="#fee8d3"><title>2026-05-31 · Sunday · 2,401,441 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="65.67" width="15.42" height="15.42" fill="#fedfbf"><title>2026-06-01 · Monday · 6,051,642 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="82.60" width="15.42" height="15.42" fill="#fdd9b4"><title>2026-06-02 · Tuesday · 8,634,446 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="99.52" width="15.42" height="15.42" fill="#fdd2a6"><title>2026-06-03 · Wednesday · 12,388,349 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="116.44" width="15.42" height="15.42" fill="#fdc895"><title>2026-06-04 · Thursday · 16,942,464 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="133.37" width="15.42" height="15.42" fill="#feeddc"><title>2026-06-05 · Friday · 920,259 tokens</title></rect>
+  <rect rx="1.5" x="547.52" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-06-06 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="48.75" width="15.42" height="15.42" fill="#fdce9f"><title>2026-06-07 · Sunday · 14,374,860 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="65.67" width="15.42" height="15.42" fill="#fd9446"><title>2026-06-08 · Monday · 48,120,426 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="82.60" width="15.42" height="15.42" fill="#fd8e3d"><title>2026-06-09 · Tuesday · 52,996,693 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="99.52" width="15.42" height="15.42" fill="#fda65f"><title>2026-06-10 · Wednesday · 35,203,281 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="116.44" width="15.42" height="15.42" fill="#fedebe"><title>2026-06-11 · Thursday · 6,289,488 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="133.37" width="15.42" height="15.42" fill="#feecd9"><title>2026-06-12 · Friday · 1,276,279 tokens</title></rect>
+  <rect rx="1.5" x="564.44" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-06-13 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="48.75" width="15.42" height="15.42" fill="#fdb16f"><title>2026-06-14 · Sunday · 28,586,503 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="65.67" width="15.42" height="15.42" fill="#fda35a"><title>2026-06-15 · Monday · 37,665,907 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="82.60" width="15.42" height="15.42" fill="#fdb576"><title>2026-06-16 · Tuesday · 26,295,086 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="99.52" width="15.42" height="15.42" fill="#fd8d3d"><title>2026-06-17 · Wednesday · 53,322,795 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="116.44" width="15.42" height="15.42" fill="#fdd2a6"><title>2026-06-18 · Thursday · 12,428,379 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="133.37" width="15.42" height="15.42" fill="#fdd9b4"><title>2026-06-19 · Friday · 8,611,582 tokens</title></rect>
+  <rect rx="1.5" x="581.37" y="150.29" width="15.42" height="15.42" fill="#fdb06e"><title>2026-06-20 · Saturday · 29,090,376 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="48.75" width="15.42" height="15.42" fill="#fdd3a7"><title>2026-06-21 · Sunday · 11,917,093 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="65.67" width="15.42" height="15.42" fill="#fdd7b1"><title>2026-06-22 · Monday · 9,396,630 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="82.60" width="15.42" height="15.42" fill="#fdd3a8"><title>2026-06-23 · Tuesday · 11,743,570 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="99.52" width="15.42" height="15.42" fill="#fdd4ab"><title>2026-06-24 · Wednesday · 10,940,980 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="116.44" width="15.42" height="15.42" fill="#fee0c2"><title>2026-06-25 · Thursday · 5,530,503 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="133.37" width="15.42" height="15.42" fill="#fdd2a6"><title>2026-06-26 · Friday · 12,395,764 tokens</title></rect>
+  <rect rx="1.5" x="598.29" y="150.29" width="15.42" height="15.42" fill="#fdbc82"><title>2026-06-27 · Saturday · 22,549,490 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="48.75" width="15.42" height="15.42" fill="#fdb87a"><title>2026-06-28 · Sunday · 25,060,214 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="65.67" width="15.42" height="15.42" fill="#fdad69"><title>2026-06-29 · Monday · 30,835,513 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="82.60" width="15.42" height="15.42" fill="#fd9e54"><title>2026-06-30 · Tuesday · 40,974,788 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="99.52" width="15.42" height="15.42" fill="#fdc58f"><title>2026-07-01 · Wednesday · 18,426,946 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="116.44" width="15.42" height="15.42" fill="#fdad69"><title>2026-07-02 · Thursday · 31,138,996 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="133.37" width="15.42" height="15.42" fill="#fd9f56"><title>2026-07-03 · Friday · 39,788,033 tokens</title></rect>
+  <rect rx="1.5" x="615.21" y="150.29" width="15.42" height="15.42" fill="#fdd1a4"><title>2026-07-04 · Saturday · 12,902,817 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="48.75" width="15.42" height="15.42" fill="#fdc48f"><title>2026-07-05 · Sunday · 18,671,338 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="65.67" width="15.42" height="15.42" fill="#fd9649"><title>2026-07-06 · Monday · 46,173,496 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="82.60" width="15.42" height="15.42" fill="#fd9649"><title>2026-07-07 · Tuesday · 46,230,691 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="99.52" width="15.42" height="15.42" fill="#fdad68"><title>2026-07-08 · Wednesday · 31,211,369 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="116.44" width="15.42" height="15.42" fill="#fddab7"><title>2026-07-09 · Thursday · 7,882,153 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="133.37" width="15.42" height="15.42" fill="#fda259"><title>2026-07-10 · Friday · 38,065,909 tokens</title></rect>
+  <rect rx="1.5" x="632.13" y="150.29" width="15.42" height="15.42" fill="#fdc38c"><title>2026-07-11 · Saturday · 19,341,705 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="48.75" width="15.42" height="15.42" fill="#e75b0c"><title>2026-07-12 · Sunday · 98,575,804 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="65.67" width="15.42" height="15.42" fill="#fdcc9c"><title>2026-07-13 · Monday · 15,143,340 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="82.60" width="15.42" height="15.42" fill="#fdb778"><title>2026-07-14 · Tuesday · 25,535,418 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="99.52" width="15.42" height="15.42" fill="#e35609"><title>2026-07-15 · Wednesday · 105,175,628 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="116.44" width="15.42" height="15.42" fill="#fdb575"><title>2026-07-16 · Thursday · 26,545,867 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="133.37" width="15.42" height="15.42" fill="#f26a15"><title>2026-07-17 · Friday · 83,151,900 tokens</title></rect>
+  <rect rx="1.5" x="649.06" y="150.29" width="15.42" height="15.42" fill="#fb8736"><title>2026-07-18 · Saturday · 57,697,942 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="48.75" width="15.42" height="15.42" fill="#dc4d04"><title>2026-07-19 · Sunday · 115,300,861 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="65.67" width="15.42" height="15.42" fill="#fdb270"><title>2026-07-20 · Monday · 28,234,388 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="82.60" width="15.42" height="15.42" fill="#fdaf6c"><title>2026-07-21 · Tuesday · 29,639,725 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="99.52" width="15.42" height="15.42" fill="#fa8331"><title>2026-07-22 · Wednesday · 61,145,167 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="116.44" width="15.42" height="15.42" fill="#fdc28b"><title>2026-07-23 · Thursday · 19,699,290 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="133.37" width="15.42" height="15.42" fill="#fdd3a9"><title>2026-07-24 · Friday · 11,554,968 tokens</title></rect>
+  <rect rx="1.5" x="665.98" y="150.29" width="15.42" height="15.42" fill="#fb8635"><title>2026-07-25 · Saturday · 58,515,085 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="48.75" width="15.42" height="15.42" fill="#f26c17"><title>2026-07-26 · Sunday · 81,152,730 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="65.67" width="15.42" height="15.42" fill="#fd9142"><title>2026-07-27 · Monday · 50,047,114 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="82.60" width="15.42" height="15.42" fill="#ffeede"><title>2026-07-28 · Tuesday · 640,101 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="99.52" width="15.42" height="15.42" fill="#fedfc0"><title>2026-07-29 · Wednesday · 5,875,527 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="116.44" width="15.42" height="15.42" fill="#fee6cd"><title>2026-07-30 · Thursday · 3,488,696 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="133.37" width="15.42" height="15.42" fill="#fedebd"><title>2026-07-31 · Friday · 6,418,977 tokens</title></rect>
+  <rect rx="1.5" x="682.90" y="150.29" width="15.42" height="15.42" fill="#ef6511"><title>2026-08-01 · Saturday · 87,952,556 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="48.75" width="15.42" height="15.42" fill="#f5731f"><title>2026-08-02 · Sunday · 74,438,055 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="65.67" width="15.42" height="15.42" fill="#fd9e53"><title>2026-08-03 · Monday · 41,143,501 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="82.60" width="15.42" height="15.42" fill="#fd8f3f"><title>2026-08-04 · Tuesday · 52,063,680 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="99.52" width="15.42" height="15.42" fill="#7f2704"><title>2026-08-05 · Wednesday · 269,116,542 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="116.44" width="15.42" height="15.42" fill="#dd4e04"><title>2026-08-06 · Thursday · 114,612,175 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="133.37" width="15.42" height="15.42" fill="#fd8f40"><title>2026-08-07 · Friday · 51,582,164 tokens</title></rect>
+  <rect rx="1.5" x="699.83" y="150.29" width="15.42" height="15.42" fill="#fc8938"><title>2026-08-08 · Saturday · 56,582,304 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="48.75" width="15.42" height="15.42" fill="#fdc794"><title>2026-08-09 · Sunday · 17,260,861 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="65.67" width="15.42" height="15.42" fill="#fd9446"><title>2026-08-10 · Monday · 47,995,598 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="82.60" width="15.42" height="15.42" fill="#fc8937"><title>2026-08-11 · Tuesday · 56,752,850 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="99.52" width="15.42" height="15.42" fill="#e45709"><title>2026-08-12 · Wednesday · 103,789,237 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="116.44" width="15.42" height="15.42" fill="#8d2d04"><title>2026-08-13 · Thursday · 197,315,641 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="133.37" width="15.42" height="15.42" fill="#fdbf86"><title>2026-08-14 · Friday · 21,037,562 tokens</title></rect>
+  <rect rx="1.5" x="716.75" y="150.29" width="15.42" height="15.42" fill="#fdaf6c"><title>2026-08-15 · Saturday · 29,896,369 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="48.75" width="15.42" height="15.42" fill="#fda259"><title>2026-08-16 · Sunday · 38,204,576 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="65.67" width="15.42" height="15.42" fill="#e95e0d"><title>2026-08-17 · Monday · 95,444,316 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="82.60" width="15.42" height="15.42" fill="#df5106"><title>2026-08-18 · Tuesday · 111,158,589 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="99.52" width="15.42" height="15.42" fill="#852a04"><title>2026-08-19 · Wednesday · 207,720,750 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="116.44" width="15.42" height="15.42" fill="#f4721e"><title>2026-08-20 · Thursday · 75,240,933 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="133.37" width="15.42" height="15.42" fill="#af3a03"><title>2026-08-21 · Friday · 156,854,638 tokens</title></rect>
+  <rect rx="1.5" x="733.67" y="150.29" width="15.42" height="15.42" fill="#de5006"><title>2026-08-22 · Saturday · 111,690,261 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="48.75" width="15.42" height="15.42" fill="#a23503"><title>2026-08-23 · Sunday · 170,118,550 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="65.67" width="15.42" height="15.42" fill="#fd9a4e"><title>2026-08-24 · Monday · 43,893,342 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="82.60" width="15.42" height="15.42" fill="#fda761"><title>2026-08-25 · Tuesday · 34,589,886 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="99.52" width="15.42" height="15.42" fill="#fee9d4"><title>2026-08-26 · Wednesday · 2,191,693 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="116.44" width="15.42" height="15.42" fill="#e05307"><title>2026-08-27 · Thursday · 108,598,564 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="133.37" width="15.42" height="15.42" fill="#fd8b3a"><title>2026-08-28 · Friday · 55,092,905 tokens</title></rect>
+  <rect rx="1.5" x="750.60" y="150.29" width="15.42" height="15.42" fill="#7f2704"><title>2026-08-29 · Saturday · 388,796,002 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="48.75" width="15.42" height="15.42" fill="#7f2704"><title>2026-08-30 · Sunday · 226,436,334 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="65.67" width="15.42" height="15.42" fill="#fdc088"><title>2026-08-31 · Monday · 20,579,574 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="82.60" width="15.42" height="15.42" fill="#fedfc0"><title>2026-09-01 · Tuesday · 5,878,483 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="99.52" width="15.42" height="15.42" fill="#7f2704"><title>2026-09-02 · Wednesday · 270,706,751 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-09-03 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="133.37" width="15.42" height="15.42" fill="#f87e2c"><title>2026-09-04 · Friday · 65,027,232 tokens</title></rect>
+  <rect rx="1.5" x="767.52" y="150.29" width="15.42" height="15.42" fill="#df5206"><title>2026-09-05 · Saturday · 110,066,149 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="48.75" width="15.42" height="15.42" fill="#feeddc"><title>2026-09-06 · Sunday · 909,742 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="65.67" width="15.42" height="15.42" fill="#fdb97d"><title>2026-09-07 · Monday · 24,077,251 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-09-08 · Tuesday · 0 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="99.52" width="15.42" height="15.42" fill="#983103"><title>2026-09-09 · Wednesday · 182,517,197 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="116.44" width="15.42" height="15.42" fill="#d84801"><title>2026-09-10 · Thursday · 121,323,444 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="133.37" width="15.42" height="15.42" fill="#f87d2a"><title>2026-09-11 · Friday · 65,974,692 tokens</title></rect>
+  <rect rx="1.5" x="784.44" y="150.29" width="15.42" height="15.42" fill="#902e04"><title>2026-09-12 · Saturday · 193,657,014 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="48.75" width="15.42" height="15.42" fill="#fa8331"><title>2026-09-13 · Sunday · 60,888,104 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="65.67" width="15.42" height="15.42" fill="#d34601"><title>2026-09-14 · Monday · 126,024,048 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="82.60" width="15.42" height="15.42" fill="#fa8331"><title>2026-09-15 · Tuesday · 60,958,998 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="99.52" width="15.42" height="15.42" fill="#bd3e02"><title>2026-09-16 · Wednesday · 144,743,752 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="116.44" width="15.42" height="15.42" fill="#fd8b3a"><title>2026-09-17 · Thursday · 55,115,700 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="133.37" width="15.42" height="15.42" fill="#d94902"><title>2026-09-18 · Friday · 120,308,035 tokens</title></rect>
+  <rect rx="1.5" x="801.37" y="150.29" width="15.42" height="15.42" fill="#7f2704"><title>2026-09-19 · Saturday · 238,041,063 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="48.75" width="15.42" height="15.42" fill="#f57421"><title>2026-09-20 · Sunday · 73,380,228 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="65.67" width="15.42" height="15.42" fill="#fdd1a5"><title>2026-09-21 · Monday · 12,773,233 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="82.60" width="15.42" height="15.42" fill="#fd8e3e"><title>2026-09-22 · Tuesday · 52,767,719 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="99.52" width="15.42" height="15.42" fill="#fda963"><title>2026-09-23 · Wednesday · 33,405,156 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="116.44" width="15.42" height="15.42" fill="#fedcb9"><title>2026-09-24 · Thursday · 7,321,164 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-09-25 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="818.29" y="150.29" width="15.42" height="15.42" fill="#feead6"><title>2026-09-26 · Saturday · 1,851,027 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-09-27 · Sunday · 0 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="65.67" width="15.42" height="15.42" fill="#ffefe0"><title>2026-09-28 · Monday · 491,874 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="82.60" width="15.42" height="15.42" fill="#fda65f"><title>2026-09-29 · Tuesday · 35,441,064 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="99.52" width="15.42" height="15.42" fill="#fd8f3f"><title>2026-09-30 · Wednesday · 51,769,091 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="116.44" width="15.42" height="15.42" fill="#fdc087"><title>2026-10-01 · Thursday · 20,863,290 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="133.37" width="15.42" height="15.42" fill="#f36d19"><title>2026-10-02 · Friday · 79,815,787 tokens</title></rect>
+  <rect rx="1.5" x="835.21" y="150.29" width="15.42" height="15.42" fill="#e35609"><title>2026-10-03 · Saturday · 104,555,384 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="48.75" width="15.42" height="15.42" fill="#922e04"><title>2026-10-04 · Sunday · 190,731,453 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="65.67" width="15.42" height="15.42" fill="#fdc691"><title>2026-10-05 · Monday · 17,928,101 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="82.60" width="15.42" height="15.42" fill="#fd984c"><title>2026-10-06 · Tuesday · 44,734,715 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="99.52" width="15.42" height="15.42" fill="#e5580a"><title>2026-10-07 · Wednesday · 102,252,416 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="116.44" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-10-08 · Thursday · 0 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="133.37" width="15.42" height="15.42" fill="#fdb677"><title>2026-10-09 · Friday · 26,052,257 tokens</title></rect>
+  <rect rx="1.5" x="852.13" y="150.29" width="15.42" height="15.42" fill="#e4570a"><title>2026-10-10 · Saturday · 103,143,846 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="48.75" width="15.42" height="15.42" fill="#fd8e3d"><title>2026-10-11 · Sunday · 52,856,659 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="65.67" width="15.42" height="15.42" fill="#c04002"><title>2026-10-12 · Monday · 141,772,354 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="82.60" width="15.42" height="15.42" fill="#fdca98"><title>2026-10-13 · Tuesday · 16,102,112 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="99.52" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-14 · Wednesday · 216,806,835 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="116.44" width="15.42" height="15.42" fill="#fff4e9"><title>2026-10-15 · Thursday · 22,624 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="133.37" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-10-16 · Friday · 0 tokens</title></rect>
+  <rect rx="1.5" x="869.06" y="150.29" width="15.42" height="15.42" fill="#f7f7f7"><title>2026-10-17 · Saturday · 0 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="48.75" width="15.42" height="15.42" fill="#953003"><title>2026-10-18 · Sunday · 187,125,226 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="65.67" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-19 · Monday · 259,891,152 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="82.60" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-20 · Tuesday · 572,489,975 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="99.52" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-21 · Wednesday · 1,031,414,882 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="116.44" width="15.42" height="15.42" fill="#b83d02"><title>2026-10-22 · Thursday · 148,714,871 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="133.37" width="15.42" height="15.42" fill="#fee2c6"><title>2026-10-23 · Friday · 4,790,133 tokens</title></rect>
+  <rect rx="1.5" x="885.98" y="150.29" width="15.42" height="15.42" fill="#fd9a4e"><title>2026-10-24 · Saturday · 43,648,947 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="48.75" width="15.42" height="15.42" fill="#cc4401"><title>2026-10-25 · Sunday · 131,615,190 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="65.67" width="15.42" height="15.42" fill="#f16914"><title>2026-10-26 · Monday · 84,095,016 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="82.60" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-27 · Tuesday · 229,874,996 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="99.52" width="15.42" height="15.42" fill="#7f2704"><title>2026-10-28 · Wednesday · 281,762,246 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="116.44" width="15.42" height="15.42" fill="#fd9040"><title>2026-10-29 · Thursday · 51,431,326 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="133.37" width="15.42" height="15.42" fill="#dc4e04"><title>2026-10-30 · Friday · 114,980,494 tokens</title></rect>
+  <rect rx="1.5" x="902.90" y="150.29" width="15.42" height="15.42" fill="#fdce9f"><title>2026-10-31 · Saturday · 14,238,139 tokens</title></rect>
+  <rect rx="1.5" x="919.83" y="48.75" width="15.42" height="15.42" fill="#fdba7e"><title>2026-11-01 · Sunday · 23,622,893 tokens</title></rect>
+  <text x="42" y="77.4" text-anchor="end" class="axis-label">Mon</text>
+  <text x="42" y="111.2" text-anchor="end" class="axis-label">Wed</text>
+  <text x="42" y="145.1" text-anchor="end" class="axis-label">Fri</text>
 </svg>
