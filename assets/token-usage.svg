@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="185" viewBox="0 0 960 185" role="img" aria-labelledby="title desc">
   <title id="title">Token usage</title>
-  <desc id="desc">Daily token usage for the last 52 weeks as a heatmap (days without usage shown as zero): week index on the x-axis, day of week on the y-axis, values normalized to 0–1 and coloured with the matplotlib Oranges colormap, with 14,244,095,399 tokens used in total as of November 16, 2026.</desc>
+  <desc id="desc">Daily token usage for the last 52 weeks as a heatmap (days without usage shown as zero): week index on the x-axis, day of week on the y-axis, values normalized to 0–1 and coloured with the matplotlib Oranges colormap, with 14,298,164,060 tokens used in total as of November 17, 2026.</desc>
   <style>
     text { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }
     .total { fill: #00000f; font-size: 15px; font-weight: 500; }
     .axis-label { fill: gray; font-size: 11px; }
   </style>
   <rect width="960" height="185" fill="#ffffff"/>
-  <text x="480" y="30" text-anchor="middle" class="total">All-time token usage: 14,244,095,399 as of November 16, 2026</text>
+  <text x="480" y="30" text-anchor="middle" class="total">All-time token usage: 14,298,164,060 as of November 17, 2026</text>
   <rect rx="1.5" x="56.75" y="48.75" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-23 · Sunday · 0 tokens</title></rect>
   <rect rx="1.5" x="56.75" y="65.67" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-24 · Monday · 0 tokens</title></rect>
   <rect rx="1.5" x="56.75" y="82.60" width="15.42" height="15.42" fill="#f7f7f7"><title>2025-11-25 · Tuesday · 0 tokens</title></rect>
@@ -366,7 +366,8 @@
   <rect rx="1.5" x="902.90" y="133.37" width="15.42" height="15.42" fill="#fdb475"><title>2026-11-13 · Friday · 27,937,331 tokens</title></rect>
   <rect rx="1.5" x="902.90" y="150.29" width="15.42" height="15.42" fill="#fdba7e"><title>2026-11-14 · Saturday · 24,582,703 tokens</title></rect>
   <rect rx="1.5" x="919.83" y="48.75" width="15.42" height="15.42" fill="#fa8230"><title>2026-11-15 · Sunday · 64,581,921 tokens</title></rect>
-  <rect rx="1.5" x="919.83" y="65.67" width="15.42" height="15.42" fill="#fdad69"><title>2026-11-16 · Monday · 32,318,707 tokens</title></rect>
+  <rect rx="1.5" x="919.83" y="65.67" width="15.42" height="15.42" fill="#f87d2a"><title>2026-11-16 · Monday · 69,254,624 tokens</title></rect>
+  <rect rx="1.5" x="919.83" y="82.60" width="15.42" height="15.42" fill="#fdc997"><title>2026-11-17 · Tuesday · 17,132,744 tokens</title></rect>
   <text x="42" y="77.4" text-anchor="end" class="axis-label">Mon</text>
   <text x="42" y="111.2" text-anchor="end" class="axis-label">Wed</text>
   <text x="42" y="145.1" text-anchor="end" class="axis-label">Fri</text>
